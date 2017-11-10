@@ -1,8 +1,9 @@
 # yasp: Yet Another String Package
 
-yasp is a small `R` package built almost entirely around `base::paste`. It includes:
+yasp is a small `R` package for working with character vectors. It is written
+in pure base `R` and has no dependancies. It includes:
 
-### `paste` wrappers with short names and different defaults
+### `paste` wrappers with short names various of defaults
 
 |             | mnemonic	               | `collapse=`| `sep=` |
 | :---------- | :----------------------- | :--------- | :----- |
@@ -69,14 +70,11 @@ x <- "A string with some \\emph{latex tags}."
 unwrap(x, "\\emph{", "}")
 #> [1] "A string with some latex tags."
 ```
-
 by default, only pairs are removed. Set a character to `""` to override.
 ```
-
 x <- c("a)", "a))", "(a", "((a" )
-data.frame(x, unparens(x),
-  'left=""' = unwrap(x, left = "", right = ")"),
-  check.names = FALSE)
+data.frame(x, unparens(x), 'left=""' = unwrap(x, left = "", right = ")"),
+           check.names = FALSE)
   
 #>     x unparens(x) left=""
 #> 1  a)          a)       a
@@ -88,6 +86,16 @@ data.frame(x, unparens(x),
 ### `sentence`
 `paste` with some additional string cleaning around `.`, `,`, and whitespace 
 appropriate for a prose sentence.
+``` r
+(x <- paste(
+  "The", c("first", "second"), "letter is", letters[1:2], ".", 
+  "That's important to know"))
+#> [1] "The first letter is a . That's important to know" 
+#> [2] "The second letter is b . That's important to know"
+sentence(x)
+#> [1] "The first letter is a. That's important to know." 
+#> [2] "The second letter is b. That's important to know."
+```
 
 ## Installation
 
