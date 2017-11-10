@@ -19,9 +19,9 @@
 #' # specify n_pairs to remove a specific number of pairs
 #' x <- c("(a)", "((a))", "(((a)))", "(a) (b)", "(a) (b) (c)", "(a) (b) (c) (d)")
 #' data.frame( x,
-#'             "n_pairs=1" = unparens(x, n_pairs = 1),
-#'             "n_pairs=2" = unparens(x, n_pairs = 2),
-#'             "n_pairs=3" = unparens(x, n_pairs = 3),
+#'             "n_pairs=1"   = unparens(x, n_pairs = 1),
+#'             "n_pairs=2"   = unparens(x, n_pairs = 2),
+#'             "n_pairs=3"   = unparens(x, n_pairs = 3),
 #'             "n_pairs=Inf" = unparens(x), # the default
 #'             check.names = FALSE )
 #'
