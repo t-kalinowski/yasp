@@ -14,7 +14,7 @@ unparens(x, n_pairs = Inf)
 
 \item{left}{left character to remove}
 
-\item{right}{right character to remove}
+\item{right}{right character to remove. Only removed if position is after \code{left}}
 
 \item{n_pairs}{number of character pairs to remove}
 }
@@ -22,7 +22,7 @@ unparens(x, n_pairs = Inf)
 character vector with pairs removed
 }
 \description{
-Remove pair(s) of wrapping characters from a string. The pair to be removed
+Remove pair(s) of characters from a string. The pair to be removed
 can be in any position within the string.
 }
 \examples{
