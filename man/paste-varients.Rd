@@ -9,7 +9,7 @@
 \alias{pcc}
 \alias{pcsc}
 \alias{pc_and}
-\title{Paste}
+\title{paste varients}
 \usage{
 p(...)
 

@@ -175,6 +175,10 @@ bracket <- function(x) wrap(x, "[", "]")
 
 #' @rdname wrap
 #' @export
+brace <- function(x) wrap(x, "{", "}")
+
+#' @rdname wrap
+#' @export
 parens <- function(x) wrap(x, "(", ")")
 
 #' @rdname wrap

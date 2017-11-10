@@ -5,6 +5,7 @@
 \alias{dbl_quote}
 \alias{sngl_quote}
 \alias{bracket}
+\alias{brace}
 \alias{parens}
 \alias{unparens}
 \title{Wrap strings}
@@ -16,6 +17,8 @@ dbl_quote(x)
 sngl_quote(x)
 
 bracket(x)
+
+brace(x)
 
 parens(x)
 
