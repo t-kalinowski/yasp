@@ -1,6 +1,6 @@
 # yasp: Yet Another String Package
 
-yasp is small `R` package built almost entirely around `base::paste`. It includes:
+yasp is a small `R` package built almost entirely around `base::paste`. It includes:
 
 ### `paste` wrappers with short names and different defaults
 
