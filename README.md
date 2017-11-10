@@ -49,19 +49,19 @@ data.frame( x, unparens(x), check.names = FALSE )
 specify `n_pairs` to remove a specific number of pairs
 ```
 x <- c("(a)", "((a))", "(((a)))", "(a) (b)", "(a) (b) (c)", "(a) (b) (c) (d)")
-data.frame( x, "npairs=1" = unparens(x, n_pairs = 1),
-               "npairs=2" = unparens(x, n_pairs = 2),
-               "npairs=3" = unparens(x, n_pairs = 3),
-               "npairs=Inf" = unparens(x), # the default 
+data.frame( x, "n_pairs=1" = unparens(x, n_pairs = 1),
+               "n_pairs=2" = unparens(x, n_pairs = 2),
+               "n_pairs=3" = unparens(x, n_pairs = 3),
+               "n_pairs=Inf" = unparens(x), # the default 
                check.names = FALSE)
   
-#>                 x      npairs=1    npairs=2  npairs=3 npairs=Inf
-#> 1             (a)             a           a         a          a
-#> 2           ((a))           (a)           a         a          a
-#> 3         (((a)))         ((a))         (a)         a          a
-#> 4         (a) (b)         a (b)         a b       a b        a b
-#> 5     (a) (b) (c)     a (b) (c)     a b (c)     a b c      a b c
-#> 6 (a) (b) (c) (d) a (b) (c) (d) a b (c) (d) a b c (d)    a b c d
+#>                 x     n_pairs=1   n_pairs=2 n_pairs=3 n_pairs=Inf
+#> 1             (a)             a           a         a           a
+#> 2           ((a))           (a)           a         a           a
+#> 3         (((a)))         ((a))         (a)         a           a
+#> 4         (a) (b)         a (b)         a b       a b         a b
+#> 5     (a) (b) (c)     a (b) (c)     a b (c)     a b c       a b c
+#> 6 (a) (b) (c) (d) a (b) (c) (d) a b (c) (d) a b c (d)     a b c d
 ```
 use `unwrap()` to specify any pair of characters for left and right
 ```
