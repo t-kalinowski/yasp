@@ -1,4 +1,4 @@
-#' paste varients
+#' paste variants
 #'
 #' There are all wrappers around \code{base::paste} with different defaults:
 #' \tabular{llcc}{
@@ -17,7 +17,7 @@
 #' @param sep passed on to \code{base::paste}
 #' @export
 #' @seealso \code{\link{wrap}} \code{\link{sentence}}
-#' @rdname paste-varients
+#' @rdname paste-variants
 #' @examples
 #' x <- head(letters, 3)
 #' y <- tail(letters, 3)
@@ -36,41 +36,41 @@ p <- function(...) paste(...)
 
 # paste0
 #' @export
-#' @rdname paste-varients
+#' @rdname paste-variants
 p0 <- function(..., sep = "") paste(..., sep = sep)
 
 # paste collapse ""
 #' @export
-#' @rdname paste-varients
+#' @rdname paste-variants
 pc <- function(..., sep = "")
   paste(..., sep = sep, collapse = "")
 
 # paste collapse space " "
 #' @export
-#' @rdname paste-varients
+#' @rdname paste-variants
 pcs <- function(..., sep = "")
   paste(..., sep = sep, collapse = " ")
 
 # paste collapse new line
-#' @rdname paste-varients
+#' @rdname paste-variants
 #' @export
 pcnl <- function(..., sep = "")
   paste(..., sep = sep, collapse = "\n")
 
 # paste collapse comma
-#' @rdname paste-varients
+#' @rdname paste-variants
 #' @export
 pcc <- function(..., sep = "")
   paste(..., sep = sep, collapse = ", ")
 
 # paste collapse semicolon
-#' @rdname paste-varients
+#' @rdname paste-variants
 #' @export
 pcsc <- function(..., sep = "")
   paste(..., sep = sep, collapse = "; ")
 
 # paste collapse and
-#' @rdname paste-varients
+#' @rdname paste-variants
 #' @export
 pc_and <- function(..., sep = "") {
   x <- paste(..., sep = sep)
@@ -149,7 +149,7 @@ sentence <- function(...) {
 #'
 #' @rdname wrap
 #' @export
-#' @seealso paste-varients sentence
+#' @seealso paste-variants sentence
 #' @examples
 #' wrap("abc", "__")
 #' sngl_quote("abc")

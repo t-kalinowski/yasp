@@ -44,5 +44,5 @@ bracket("abc")
 unparens(x)
 }
 \seealso{
-paste-varients sentence
+paste-variants sentence
 }

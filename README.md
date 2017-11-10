@@ -21,7 +21,7 @@ pc_and( letters[1:2] )  # "a and b"
 pc_and( letters[1:3] )  # "a, b, and c"
 ```
 
-### `wrap` and varients
+### `wrap` and variants
 Wrap a string with some characters
 
 * `wrap("x", left = "", right = left)`
