@@ -1,6 +1,6 @@
 # yasp: Yet Another String Package
 
-yasp is small R package built almost entirely around `base::paste`. It includes:
+yasp is small `R` package built almost entirely around `base::paste`. It includes:
 
 ### `paste` wrappers with short names and different defaults
 
@@ -17,8 +17,8 @@ yasp is small R package built almost entirely around `base::paste`. It includes:
 
 `pc_and` collapses vectors of length 3 or greater using a serial comma (aka, oxford comma)
 ```
-pc_and(letters[1:2])  # "a and b"
-pc_and(letters[1:3])  # "a, b, and c"
+pc_and( letters[1:2] )  # "a and b"
+pc_and( letters[1:3] )  # "a, b, and c"
 ```
 
 ### `wrap` and varients
