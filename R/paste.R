@@ -149,7 +149,7 @@ sentence <- function(...) {
 #'
 #' @rdname wrap
 #' @export
-#' @seealso paste-variants sentence
+#' @seealso paste-variants sentence unwrap
 #' @examples
 #' wrap("abc", "__")
 #' sngl_quote("abc")
@@ -157,7 +157,6 @@ sentence <- function(...) {
 #' parens("abc")
 #' bracket("abc")
 #' (x <- p("name", parens("attribute")))
-#' unparens(x)
 wrap <- function(x, left = "", right = left)
   paste0(left, x, right)
 
@@ -180,16 +179,3 @@ brace <- function(x) wrap(x, "{", "}")
 #' @rdname wrap
 #' @export
 parens <- function(x) wrap(x, "(", ")")
-
-#' @rdname wrap
-#' @export
-unparens <- function(x) {
-  left <- grepl("(^|\\s)\\(", x)
-  right <- grepl("\\)($|\\s)", x)
-  lr <- left & right
-  x[lr] <- gsub("(^|\\s)\\(", "\\1", x[lr])
-  x[lr] <- gsub("\\)($|\\s)", "\\1", x[lr])
-  x
-}
-
-

@@ -7,7 +7,6 @@
 \alias{bracket}
 \alias{brace}
 \alias{parens}
-\alias{unparens}
 \title{Wrap strings}
 \usage{
 wrap(x, left = "", right = left)
@@ -21,8 +20,6 @@ bracket(x)
 brace(x)
 
 parens(x)
-
-unparens(x)
 }
 \arguments{
 \item{x}{character to wrap}
@@ -41,8 +38,7 @@ dbl_quote("abc")
 parens("abc")
 bracket("abc")
 (x <- p("name", parens("attribute")))
-unparens(x)
 }
 \seealso{
-paste-variants sentence
+paste-variants sentence unwrap
 }
