@@ -45,8 +45,10 @@ unwrap <- function(x, left = "", right = left, n_pairs = Inf) {
     pos_start_search_right <- left_match + nchar(left)
 
     right_match <- as.integer(
-      regexpr(right, substr(x, pos_start_search_right, nchar(x))))
+      regexpr(right, substr(x, pos_start_search_right, nchar(x)), fixed = TRUE))
 
+    nrm <- right_match != -1L # no right match
+    right_match[nrm] <- right_match[nrm] + pos_start_search_right[nrm] -1L
 
     both_match <- left_match != -1L & left_match < right_match
     # right_match != -1  implicitly must be TRUE
@@ -57,11 +59,11 @@ unwrap <- function(x, left = "", right = left, n_pairs = Inf) {
     left_match  <- left_match[both_match]
     right_match <- right_match[both_match]
 
-    xtmp <- drop_chars(xtmp, left_match,  len = nchar(left))
+    xtmp <- drop_chars(xtmp, start = left_match, len = nchar(left))
 
     # adjust right match after dropping left chars
     right_match <- right_match - nchar(left)
-    xtmp <- drop_chars(xtmp, right_match, len = nchar(right))
+    xtmp <- drop_chars(xtmp, start = right_match, len = nchar(right))
 
     x[both_match] <- xtmp
     n_pairs <- n_pairs - 1L
