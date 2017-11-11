@@ -95,7 +95,16 @@ appropriate for a prose sentence.
 sentence(x)
 #> [1] "The first letter is a. That's important to know." 
 #> [2] "The second letter is b. That's important to know."
+ 
+(x <- p0( "a sentence with   excessive or missing whitespace,",
+", extra punctuation, and missing capilitization.more than one in fact ! .Three,actually"))
+#> [1] "a sentence with   excessive or missing whitespace,, extra punctuation, and missing 
+   capilitization.more than one in fact ! .Three,actually"
+sentence(x)
+#> [1] "A sentence with excessive or missing whitespace, extra punctuation, and missing 
+    capilitization. More than one in fact! Three, actually."
 ```
+
 
 ## Installation
 
