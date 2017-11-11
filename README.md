@@ -84,8 +84,7 @@ data.frame(x, unparens(x), 'left=""' = unwrap(x, left = "", right = ")"),
 ```
 
 ### `sentence`
-`paste` with some additional string cleaning around `.`, `,`, and whitespace 
-appropriate for a prose sentence.
+`paste` with some additional string cleaning appropriate for prose sentences.
 ``` r
 (x <- paste(
   "The", c("first", "second"), "letter is", letters[1:2], ".", 
@@ -104,6 +103,25 @@ sentence(x)
 #> [1] "A sentence with excessive or missing whitespace, extra punctuation, and missing 
     capilitization. More than one in fact! Three, actually."
 ```
+
+A wrapper around `paste` that does some simple cleaning appropriate for
+prose sentences before returning the result. It
+
+   + trims leading and trailing whitespace
+   + collapses runs of multiple whitespace into a single space
+   + appends a period `.` if there is no sentence ending
+         punctuation (`?`, `!`, or `.`)
+   + removes spaces preceding punctuation characters: `.?!,;`
+   + collapses sequences of punctuation characters (`.?!;,`) (possibly
+         separated by spaces), into a single punctuation character. The first
+         punctuation character of the sequence is used, with priority given to
+         sentence ending punctuation `.?!`, if present.
+   + makes sure a space follows every `.` or `,`, (unless
+         followed by a digit or the end of the string)
+   + makes sure a space follows every `?`, `!` or `;`
+         (unless it's the end of the string)
+   + capitalizes the first letter of each sentence (start of string or
+         following a `.?!`)
 
 
 ## Installation

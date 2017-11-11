@@ -4,7 +4,7 @@ Title: Yet Another String Package
 Version: 0.1.0
 Author: Tomasz Kalinowski
 Maintainer: Tomasz Kalinowski <tkalinow@asu.edu>
-Description: A collection of string functions. Simple, fast, dependancy-free, pure R.
+Description: A collection of string functions. Simple, fast, dependency-free, pure R.
 License: MIT + file LICENSE
 URL: https://github.com/t-kalinowski/yasp
 BugReports: https://github.com/t-kalinowski/yasp/issues

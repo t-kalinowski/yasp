@@ -96,11 +96,11 @@ pc_and <- function(..., sep = "") {
 #'    \item collapses runs of multiple whitespace into a single space
 #'    \item appends a period \code{.} if there is no sentence ending
 #'          punctuation (\code{?}, \code{!}, or \code{.})
-#'    \item removes spaces preceeding punctuation characters: \code{.?!,;}
+#'    \item removes spaces preceding punctuation characters: \code{.?!,;}
 #'    \item collapses sequences of punctuation characters (\code{.?!;,}) (possibly
 #'          separated by spaces), into a single punctuation character. The first
-#'          punctuation character of the sequence is used, with priorioty given to
-#'          sentence ending punctuation \code{.?!} if present.
+#'          punctuation character of the sequence is used, with priority given to
+#'          sentence ending punctuation \code{.?!}, if present.
 #'    \item makes sure a space follows every \code{.} or \code{,}, (unless
 #'          followed by a digit or the end of the string)
 #'    \item makes sure a space follows every \code{?}, \code{!} or \code{;}
@@ -140,7 +140,7 @@ sentence <- function(...) {
   x <- gsub("[[:space:]]([.,?;!])", "\\1", x, perl = TRUE)
 
   # if there are multiple punctuation characters in a row (possibly separated by
-  # spaces), just keep the first, giving priorioty to sentence ending ?!. if
+  # spaces), just keep the first, giving priority to sentence ending ?!. if
   # present
   x <-  gsub("[;, ]*([.?!;,] ?)[.?!;, ]*", "\\1", x, perl = TRUE)
 

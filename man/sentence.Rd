@@ -10,17 +10,18 @@ sentence(...)
 \item{...}{passed on to \code{paste}}
 }
 \description{
-A wrapper around \code{paste} that does some simple cleaning appropriate for prose sentences before returning the result. It
+A wrapper around \code{paste} that does some simple cleaning appropriate for
+prose sentences before returning the result. It
 \enumerate{
    \item trims leading and trailing whitespace
    \item collapses runs of multiple whitespace into a single space
    \item appends a period \code{.} if there is no sentence ending
          punctuation (\code{?}, \code{!}, or \code{.})
-   \item removes spaces preceeding punctuation characters: \code{.?!,;}
+   \item removes spaces preceding punctuation characters: \code{.?!,;}
    \item collapses sequences of punctuation characters (\code{.?!;,}) (possibly
          separated by spaces), into a single punctuation character. The first
-         punctuation character of the sequence is used, with priorioty given to
-         sentence ending punctuation \code{.?!} if present.
+         punctuation character of the sequence is used, with priority given to
+         sentence ending punctuation \code{.?!}, if present.
    \item makes sure a space follows every \code{.} or \code{,}, (unless
          followed by a digit or the end of the string)
    \item makes sure a space follows every \code{?}, \code{!} or \code{;}
