@@ -81,6 +81,12 @@ Type 'q()' to quit R.
 [1] "The first letter is a. That's important to know." 
 [2] "The second letter is b. That's important to know."
 [3] "The third letter is c. That's important to know." 
+>  x <- p0( "a sentence with   excessive or missing whitespace,",
++ ", extra punctuation, and missing capilitization.more than one in fact ! .Three,actually")
+> cat(x, "\n")
+a sentence with   excessive or missing whitespace,, extra punctuation, and missing capilitization.more than one in fact ! .Three,actually 
+> cat(sentence(x), "\n")
+A sentence with excessive or missing whitespace, extra punctuation, and missing capilitization. More than one in fact! Three, actually. 
 > 
 > 
 > 
@@ -172,7 +178,7 @@ Type 'q()' to quit R.
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.165 0.007 0.173 0 0 
+Time elapsed:  0.171 0.008 0.183 0 0 
 > grDevices::dev.off()
 null device 
           1 
