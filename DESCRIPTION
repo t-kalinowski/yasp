@@ -3,7 +3,7 @@ Type: Package
 Title: Yet Another String Package
 Version: 0.1.0
 Author: Tomasz Kalinowski
-Maintainer: Tomasz Kalinowski <tkalino@asu.edu>
-Description: A collection of string functions. Simple, dependancy-free, fast.
+Maintainer: Tomasz Kalinowski <tkalinow@asu.edu>
+Description: A collection of string functions. Simple, fast, dependancy-free, pure R.
 License: MIT + file LICENSE
 RoxygenNote: 6.0.1
