@@ -7,13 +7,13 @@ in pure base `R` and has no dependancies. It includes:
 
 |             | mnemonic                 | `collapse=`| `sep=` |
 | :---------- | :----------------------- | :--------- | :----- |
-| `p()`	      | paste                    | `NULL`     | `" "`  |
-| `p0()`      | paste0	                 | `NULL`     | `""`   |
-| `pc()`      | paste collapse	         | `""`	      | `""`   |
+| `p()`       | paste                    | `NULL`     | `" "`  |
+| `p0()`      | paste0                   | `NULL`     | `""`   |
+| `pc()`      | paste collapse           | `""`       | `""`   |
 | `pcs()`     | paste collapse space     | `" "`      | `""`   |
 | `pcc()`     | paste collapse comma     | `", "`     | `""`   |
 | `pcsc()`    | paste collapse semicolon | `"; "`     | `""`   |
-| `pcnl()`    | paste collapse newline	 | `"\n"`     | `""`   |
+| `pcnl()`    | paste collapse newline   | `"\n"`     | `""`   |
 | `pc_and()`  | paste collapse and	     | _varies_   | `""`   |
 
 `pc_and` collapses vectors of length 3 or greater using a serial comma (aka, oxford comma)
@@ -97,9 +97,9 @@ sentence(x)
 #> [2] "The second letter is b. That's important to know."
  
 (x <- p0( "a sentence with   excessive or missing whitespace,",
-", extra punctuation, and missing capilitization.more than one in fact ! .Three,actually"))
+", extra punctuation, and missing capilitization.more than one in fact ! .three,actually"))
 #> [1] "a sentence with   excessive or missing whitespace,, extra punctuation, and missing 
-   capilitization.more than one in fact ! .Three,actually"
+   capilitization.more than one in fact ! .three,actually"
 sentence(x)
 #> [1] "A sentence with excessive or missing whitespace, extra punctuation, and missing 
     capilitization. More than one in fact! Three, actually."
