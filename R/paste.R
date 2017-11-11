@@ -89,7 +89,8 @@ pc_and <- function(..., sep = "") {
 
 #' sentence
 #'
-#' A wrapper around \code{paste} that does some simple cleaning appropriate for prose sentences before returning the result. It
+#' A wrapper around \code{paste} that does some simple cleaning appropriate for
+#' prose sentences before returning the result. It
 #' \enumerate{
 #'    \item trims leading and trailing whitespace
 #'    \item collapses runs of multiple whitespace into a single space
