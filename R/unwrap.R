@@ -41,29 +41,12 @@ unwrap <- function(x, left = "", right = left, n_pairs = Inf) {
     # get the index positions of the first left match
     left_match <- as.integer(regexpr(left, x, fixed = TRUE))
 
-    all_right_matches <- gregexpr(right, x, fixed = TRUE)
-
     # get the index positions of the first right match after the first left match
     pos_start_search_right <- left_match + nchar(left)
 
     right_match <- as.integer(
       regexpr(right, substr(x, pos_start_search_right, nchar(x))))
 
-    right_match <- ifelse(right_match == -1L, -1L,
-                          right_match + pos_start_search_right -1L)
-
-    ## older, functional implementation of search for right...
-    ## not sure which is better
-    # right_match <- vapply(seq_along(x), function(i)
-    #                         Find(function(match) match > left_match[i],
-    #                              all_right_matches[[i]], nomatch = -1L),
-    #                              integer(1L))
-
-
-    # right_match <- vapply(seq_along(x), function(i) {
-    #   matches <- all_right_matches[[i]]
-    #   matches[which.max(matches > left_match[i])]
-    # }
 
     both_match <- left_match != -1L & left_match < right_match
     # right_match != -1  implicitly must be TRUE

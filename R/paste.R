@@ -85,8 +85,6 @@ pc_and <- function(..., sep = "") {
   )
 }
 
-# p0( pcc(x[-lx]), ", and ", x[lx])
-#
 
 
 #' sentence
