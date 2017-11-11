@@ -108,33 +108,46 @@ pc_and <- function(..., sep = "") {
 #'  "The", c("first", "second", "third"),
 #'    "letter is", letters[1:3], ".",
 #'  "That's important to know")
+#'  x <- p0( "a sentence with   excessive or missing whitespace,",
+#' ", extra punctuation, and missing capilitization.more than one in fact ! .Three,actually")
+#' cat(x, "\n")
+#' cat(sentence(x), "\n")
 sentence <- function(...) {
   x <- paste(...)
 
   x <- trimws(x)
 
-  # doubpled up ".." stripped later
-  x <- paste0(x, ".")
+  # we use perl = TRUE as the default everywhere because
+  # it's both faster and more powerful
+
+  # Add a period if there isn't a sentence ending punctuation
+  x <- ifelse(grepl("[?!.]$", x, perl = TRUE), x, paste0(x, "."))
 
   # 2 or more spaces into 1 space
-  x <- gsub("\\s{2,}", " ", x)
+  x <- gsub("[[:space:]]+", " ", x, perl = TRUE)
 
-  # remove spaces before a ","; replace multiple ",," with a single ","
-  x <- gsub("\\s*,+", ",", x)
+  # remove spaces preceding ?!.,;
+  x <- gsub("[[:space:]]([.,?;!])", "\\1", x, perl = TRUE)
 
-  # remove spaces before a "."; replace multiple ".." with a single "."
-  x <- gsub("\\s*\\.+", ".", x)
+  # if there are multiple punctuation characters in a row (possibly separated by
+  # spaces), just keep the first, giving priorioty to sentence ending ?!. if
+  # present
+  x <-  gsub("[;, ]*([.?!;,] ?)[.?!;, ]*", "\\1", x, perl = TRUE)
 
-  # improvement ideas:
-  # option to capatilize first letter
+  # make sure a space or EOL or digit follows every period or comma. digit
+  # unless it's followd by a digit, indicating its a decimal or numeric
+  # separator and not punctuation.
+  # there should be any ",$" matches at this point
+  x <- gsub("([.,])(?![[:digit:]]| |$)", "\\1 ", x, perl = TRUE)
+
+  # make sure a space or EOL follows every ?!;
+  x <- gsub("([?!;])(?! |$)", "\\1 ", x, perl = TRUE)
+
+  # Capatilize first letter following a .?! or at the start of the string
+  x <- gsub("(^|[.?!] )([[:lower:]])", "\\1\\U\\2", x, perl = TRUE)
 
   x
 }
-
-# a space should follow periods marking boundry between sentences
-# out <- gsub("\\.[\\S\\D]", ". ", out)
-
-
 
 
 #' Wrap strings

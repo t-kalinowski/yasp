@@ -25,4 +25,8 @@ sentence(
  "The", c("first", "second", "third"),
    "letter is", letters[1:3], ".",
  "That's important to know")
+ x <- p0( "a sentence with   excessive or missing whitespace,",
+", extra punctuation, and missing capilitization.more than one in fact ! .Three,actually")
+cat(x, "\\n")
+cat(sentence(x), "\\n")
 }
