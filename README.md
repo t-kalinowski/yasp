@@ -36,6 +36,11 @@ Wrap a string with some characters
 ### `unwrap`, `unparens`
 Remove pairs of characters from a string
 ``` r
+label <- p("name", parens("attribute"))
+
+label             # "name (attribute)"
+unparens(label)   # "name attribute"
+
 # by default, removes all matching pairs of left and right
 x <- c("a", "(a)", "((a))", "(a) b", "a (b)", "(a) (b)" )
 data.frame( x, unparens(x), check.names = FALSE )
@@ -84,45 +89,56 @@ data.frame(x, unparens(x), 'left=""' = unwrap(x, left = "", right = ")"),
 ```
 
 ### `sentence`
-`paste` with some additional string cleaning appropriate for prose sentences.
+
+`paste` with some additional string cleaning (mostly concerning
+whitespace) appropriate for prose sentences. It
+
+  + trims leading and trailing whitespace
+  + collapses runs of multiple whitespace into a single space
+  + appends a period `.` if there is no sentence ending
+      punctuation (`?`, `!`, or `.`)
+  + removes spaces preceding punctuation characters: `.?!,;:`
+  + collapses sequences of punctuation characters (\code{.?!:;,}) (possibly
+      separated by spaces), into a single punctuation character. The first
+      punctuation character of the sequence is used, with priority given to
+      sentence ending punctuation \code{.?!} if present
+  + makes sure a space or end-of-string follows every one of
+      `.?!;:`, with an exception for the special case of `.,:`
+      followed by a digit, indicating the punctuation is a decimal period, 
+      number seperator, or time delimiter
+  + capitalizes the first letter of each sentence (start of string or
+      following a `.?!`)
+      
+From the examples in `?sentence`
 ``` r
-(x <- paste(
-  "The", c("first", "second"), "letter is", letters[1:2], ".", 
-  "That's important to know"))
-#> [1] "The first letter is a . That's important to know" 
-#> [2] "The second letter is b . That's important to know"
-sentence(x)
-#> [1] "The first letter is a. That's important to know." 
-#> [2] "The second letter is b. That's important to know."
- 
-(x <- p0( "a sentence with   excessive or missing whitespace,",
-", extra punctuation, and missing capilitization.more than one in fact ! .three,actually"))
-#> [1] "a sentence with   excessive or missing whitespace,, extra punctuation, and missing 
-   capilitization.more than one in fact ! .three,actually"
-sentence(x)
-#> [1] "A sentence with excessive or missing whitespace, extra punctuation, and missing 
-    capilitization. More than one in fact! Three, actually."
+compare <- function(x) cat(sprintf(' in: "%s"\nout: "%s"\n', x, sentence(x)))
+
+#>  in: "capitilized and period added"
+#> out: "Capitilized and period added."
+
+#>  in: "whitespace:added ,or removed ; like this.and this"
+#> out: "Whitespace: added, or removed; like this. And this."
+
+#>  in: "periods and commas in numbers like 1,234.567 are fine !"
+#> out: "Periods and commas in numbers like 1,234.567 are fine!"
+
+#>  in: "colons can be punctuation or time : 12:00 !"
+#> out: "Colons can be punctuation or time: 12:00!"
+
+#>  in: "only one punctuation at a time!.?,;"
+#> out: "Only one punctuation at a time!"
+
+#>  in: "The first mark ,; is kept;,,with priority for sentence enders ;,."
+#> out: "The first mark, is kept; with priority for sentence enders."
+
+# vectorized like paste()
+sentence(
+ "The", c("first", "second", "third"), "letter is", letters[1:3],
+ parens("uppercase:", sngl_quote(LETTERS[1:3])), ".")
+#> [1] "The first letter is a (uppercase: 'A')." 
+#> [2] "The second letter is b (uppercase: 'B')."
+#> [3] "The third letter is c (uppercase: 'C')."
 ```
-
-A wrapper around `paste` that does some simple cleaning appropriate for
-prose sentences before returning the result. It
-
-   + trims leading and trailing whitespace
-   + collapses runs of multiple whitespace into a single space
-   + appends a period `.` if there is no sentence ending
-         punctuation (`?`, `!`, or `.`)
-   + removes spaces preceding punctuation characters: `.?!,;`
-   + collapses sequences of punctuation characters (`.?!;,`) (possibly
-         separated by spaces), into a single punctuation character. The first
-         punctuation character of the sequence is used, with priority given to
-         sentence ending punctuation `.?!`, if present.
-   + makes sure a space follows every `.` or `,`, (unless
-         followed by a digit or the end of the string)
-   + makes sure a space follows every `?`, `!` or `;`
-         (unless it's the end of the string)
-   + capitalizes the first letter of each sentence (start of string or
-         following a `.?!`)
-
 
 ## Installation
 

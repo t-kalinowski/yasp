@@ -22,8 +22,8 @@ unparens(x, n_pairs = Inf)
 character vector with pairs removed
 }
 \description{
-Remove pair(s) of characters from a string. The pair to be removed
-can be in any position within the string.
+Remove pair(s) of characters from a string. The pair(s) to be removed
+can be at any position within the string.
 }
 \examples{
 # by default, removes all matching pairs of left and right
@@ -48,4 +48,7 @@ x <- c("a)", "a))", "(a", "((a" )
 data.frame(x, unparens(x),
   'left=""' = unwrap(x, left = "", right = ")"),
   check.names = FALSE)
+}
+\seealso{
+\code{\link{wrap}}
 }

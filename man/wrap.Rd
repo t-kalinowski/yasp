@@ -11,15 +11,15 @@
 \usage{
 wrap(x, left = "", right = left)
 
-dbl_quote(x)
+dbl_quote(...)
 
-sngl_quote(x)
+sngl_quote(...)
 
-bracket(x)
+bracket(...)
 
-brace(x)
+brace(...)
 
-parens(x)
+parens(...)
 }
 \arguments{
 \item{x}{character to wrap}
@@ -27,18 +27,26 @@ parens(x)
 \item{left}{character}
 
 \item{right}{character}
+
+\item{...}{passed to \code{paste} before wrapping}
 }
 \description{
-These are a series of helpers to help wrap strings with two flanking characters
+Wrap strings with flanking characters
 }
 \examples{
-wrap("abc", "__")
-sngl_quote("abc")
-dbl_quote("abc")
-parens("abc")
-bracket("abc")
-(x <- p("name", parens("attribute")))
+wrap("abc", "__")  #  __abc__
+parens("abc")      #   (abc)
+sngl_quote("abc")  #   'abc'
+dbl_quote("abc")   #   "abc"
+bracket("abc")     #   [abc]
+brace("abc")       #   {abc}
+
+label <- p("name", parens("attribute"))
+
+label             # "name (attribute)"
+unparens(label)   # "name attribute"
 }
 \seealso{
-paste-variants sentence unwrap
+\code{\link{unwrap}} \code{\link{p}} \code{\link{sentence}}
+\code{\link[base]{paste}}
 }

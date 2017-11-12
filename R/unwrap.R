@@ -1,7 +1,7 @@
 #' unwrap
 #'
-#' Remove pair(s) of characters from a string. The pair to be removed
-#' can be in any position within the string.
+#' Remove pair(s) of characters from a string. The pair(s) to be removed
+#' can be at any position within the string.
 #'
 #' @param x character vector
 #' @param left left character to remove
@@ -10,6 +10,8 @@
 #'
 #' @return character vector with pairs removed
 #' @export
+#'
+#' @seealso \code{\link{wrap}}
 #'
 #' @examples
 #' # by default, removes all matching pairs of left and right
