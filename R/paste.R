@@ -1,6 +1,6 @@
 #' paste variants
 #'
-#' There are all wrappers around \code{base::paste} with different defaults:
+#' Wrappers around \code{base::paste} with a variety of defaults:
 #' \tabular{llcc}{
 #'    \code{}         \tab \strong{mnemonic}        \tab \strong{\code{collapse=}} \tab \strong{\code{sep=}} \cr
 #'    \code{p()}      \tab paste                    \tab \code{NULL}               \tab \code{" "}   \cr
@@ -13,19 +13,23 @@
 #'    \code{pc_and()} \tab paste collapse and       \tab \emph{varies}             \tab \code{""}    \cr
 #' }
 #'
-#' @param ... passed on to \code{paste}
+#' @param ... passed on to \code{base::paste}
 #' @param sep passed on to \code{base::paste}
 #' @export
-#' @seealso \code{\link{wrap}} \code{\link{sentence}}
+#' @seealso \code{\link[base]{paste}} \code{\link{wrap}} \code{\link{sentence}}
 #' @rdname paste-variants
 #' @examples
 #' x <- head(letters, 3)
 #' y <- tail(letters, 3)
+#' # paste
 #' p(x, y)
 #' p0(x, y)
+#' # paste + collapse
 #' pc(x)
+#' pc(x, y)
 #' pcs(x)
 #' pcc(x)
+#' pcc(x, y)
 #' pcsc(x)
 #' pcnl(x)
 #' pc_and(x[1])
@@ -135,3 +139,4 @@ brace <- function(...) wrap(paste(...), "{", "}")
 
 #' @rdname wrap
 #' @export
+parens <- function(...) wrap(paste(...), "(", ")")
