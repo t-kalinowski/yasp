@@ -85,7 +85,7 @@ pc_and <- function(..., sep = "") {
   else if (lx == 1L)
     x
   else if (lx == 2L)
-    paste(x, collapse = " and ")
+    paste0(x, collapse = " and ")
   else
     paste0( paste0(x[-lx], collapse = ", "), ", and ", x[lx])
 }
