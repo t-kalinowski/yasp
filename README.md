@@ -102,7 +102,7 @@ whitespace) appropriate for prose sentences. It
   + collapses sequences of punctuation characters (`.?!,;:`) (possibly
       separated by spaces), into a single punctuation character. The first
       punctuation character of the sequence is used, with priority given to
-      sentence ending punctuation `.?!` if present
+      terminal punctuation marks `.?!` if present
   + makes sure a space or end-of-string follows every one of
       `.?!,;:`, with an exception for the special case of `.,:`
       followed by a digit, indicating the punctuation is a decimal period, 
@@ -129,8 +129,8 @@ compare <- function(x) cat(sprintf(' in: "%s"\nout: "%s"\n', x, sentence(x)))
 #>  in: "only one punctuation at a time!.?,;"
 #> out: "Only one punctuation at a time!"
 
-#>  in: "The first mark ,; is kept;,,with priority for sentence enders ;,."
-#> out: "The first mark, is kept; with priority for sentence enders."
+#>  in: "The first mark ,; is kept;,,with priority for terminal marks  ;,."
+#> out: "The first mark, is kept; with priority for terminal marks."
 
 # vectorized like paste()
 sentence(

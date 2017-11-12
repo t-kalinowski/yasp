@@ -32,7 +32,7 @@
 #' compare("periods and commas in numbers like 1,234.567 are fine !")
 #' compare("colons can be punctuation or time : 12:00 !")
 #' compare("only one punctuation at a time!.?,;")
-#' compare("The first mark ,; is kept;,,with priority for sentence enders ;,.")
+#' compare("The first mark ,; is kept;,,with priority for terminal marks ;,.")
 #'
 #' # vectorized like paste()
 #' sentence(
@@ -47,7 +47,7 @@ sentence <- function(...) {
   # it's both faster and more powerful
   lgsub <- function(ptrn, rplc) gsub(ptrn, rplc, x, perl = TRUE)
 
-  # Add a period if there isn't a sentence ending punctuation
+  # Add a period if there isn't a terminal punctuation mark
   x <- ifelse(grepl("[?!.]$", x, perl = TRUE), x, paste0(x, "."))
 
   # 2 or more spaces into 1 space
@@ -57,9 +57,8 @@ sentence <- function(...) {
   x <- lgsub("[[:space:]]([.,?;:!])", "\\1")
 
   # if there are multiple punctuation characters in a row (possibly separated by
-  # spaces), just keep the first, giving priority to sentence ending ?!. if
-  # present
-  # first, look for sequences that contain ?!., and capture that and possible a space
+  # spaces), just keep the first, giving priority to terminal marks ?!. if present
+  # first, look for sequences that contain ?!., and capture that and possibly a space
   x <- lgsub("[;:, ]*([.?!] ?)[.?!:;,]*( ?)[.?!:;, ]*", "\\1\\2")
 
   # next, look for sequences that contain ,;: and capture the first one possibly a space
