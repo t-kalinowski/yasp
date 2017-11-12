@@ -98,15 +98,15 @@ whitespace) appropriate for prose sentences. It
   + appends a period `.` if there is no sentence ending
       punctuation (`?`, `!`, or `.`)
   + removes spaces preceding punctuation characters: `.?!,;:`
-  + collapses sequences of punctuation characters (\code{.?!:;,}) (possibly
+  + collapses sequences of punctuation characters (`.?!:;,`) (possibly
       separated by spaces), into a single punctuation character. The first
       punctuation character of the sequence is used, with priority given to
-      sentence ending punctuation \code{.?!} if present
+      sentence ending punctuation `.?!` if present
   + makes sure a space or end-of-string follows every one of
       `.?!;:`, with an exception for the special case of `.,:`
       followed by a digit, indicating the punctuation is a decimal period, 
       number seperator, or time delimiter
-  + capitalizes the first letter of each sentence (start of string or
+  + capitalizes the first letter of each sentence (start-of-string or
       following a `.?!`)
       
 From the examples in `?sentence`
