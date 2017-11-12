@@ -93,12 +93,12 @@ out: "Periods and commas in numbers like 1,234.567 are fine!"
 > compare("colons can be punctuation or time : 12:00 !")
  in: "colons can be punctuation or time : 12:00 !"
 out: "Colons can be punctuation or time: 12:00!"
-> compare("only one punctuation at a time!.?,;")
- in: "only one punctuation at a time!.?,;"
-out: "Only one punctuation at a time!"
-> compare("The first mark ,; is kept;,,with priority for sentence enders ;,.")
- in: "The first mark ,; is kept;,,with priority for sentence enders ;,."
-out: "The first mark, is kept; with priority for sentence enders."
+> compare("only one punctuation mark at a time!.?,;")
+ in: "only one punctuation mark at a time!.?,;"
+out: "Only one punctuation mark at a time!"
+> compare("The first mark ,; is kept;,,with priority for terminal marks ;,.")
+ in: "The first mark ,; is kept;,,with priority for terminal marks ;,."
+out: "The first mark, is kept; with priority for terminal marks."
 > 
 > # vectorized like paste()
 > sentence(
@@ -205,7 +205,7 @@ out: "The first mark, is kept; with priority for sentence enders."
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.178 0.007 0.186 0 0 
+Time elapsed:  0.193 0.007 0.202 0 0 
 > grDevices::dev.off()
 null device 
           1 
