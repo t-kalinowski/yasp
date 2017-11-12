@@ -118,7 +118,7 @@ pc_and <- function(..., sep = "") {
 #'
 #' label             # "name (attribute)"
 #' unparens(label)   # "name attribute"
-wrap <- function(x, left = "", right = left)
+wrap <- function(x, left, right = left)
   paste0(left, x, right)
 
 #' @rdname wrap
