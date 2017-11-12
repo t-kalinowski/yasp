@@ -1,7 +1,7 @@
 Package: yasp
 Type: Package
 Title: Yet Another String Package
-Version: 0.1.0
+Version: 0.1.0.9000
 Author: Tomasz Kalinowski
 Maintainer: Tomasz Kalinowski <tkalinow@asu.edu>
 Description: A collection of string functions. Simple, fast, dependency-free, pure R.
