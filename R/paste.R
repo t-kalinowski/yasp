@@ -40,7 +40,7 @@ p <- function(...) paste(...)
 # paste0
 #' @export
 #' @rdname paste-variants
-p0 <- function(..., sep = "") paste(..., sep = sep)
+p0 <- function(...) paste0(...)
 
 # paste collapse ""
 #' @export
