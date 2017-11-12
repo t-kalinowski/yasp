@@ -87,116 +87,51 @@ pc_and <- function(..., sep = "") {
 
 
 
-#' sentence
-#'
-#' A wrapper around \code{paste} that does some simple cleaning appropriate for
-#' prose sentences before returning the result. It
-#' \enumerate{
-#'    \item trims leading and trailing whitespace
-#'    \item collapses runs of multiple whitespace into a single space
-#'    \item appends a period \code{.} if there is no sentence ending
-#'          punctuation (\code{?}, \code{!}, or \code{.})
-#'    \item removes spaces preceding punctuation characters: \code{.?!,;}
-#'    \item collapses sequences of punctuation characters (\code{.?!;,}) (possibly
-#'          separated by spaces), into a single punctuation character. The first
-#'          punctuation character of the sequence is used, with priority given to
-#'          sentence ending punctuation \code{.?!}, if present.
-#'    \item makes sure a space follows every \code{.} or \code{,}, (unless
-#'          followed by a digit or the end of the string)
-#'    \item makes sure a space follows every \code{?}, \code{!} or \code{;}
-#'          (unless it's the end of the string)
-#'    \item capitalizes the first letter of each sentence (start of string or
-#'          following a \code{.?!})
-#' }
-#'
-#' @param ... passed on to \code{paste}
-#'
-#' @export
-#'
-#' @examples
-#' sentence(
-#'  "The", c("first", "second", "third"),
-#'    "letter is", letters[1:3], ".",
-#'  "That's important to know")
-#'  x <- p0( "a sentence with   excessive or missing whitespace,",
-#' ", extra punctuation, and missing capilitization.more than one in fact ! .Three,actually")
-#' cat(x, "\n")
-#' cat(sentence(x), "\n")
-sentence <- function(...) {
-  x <- paste(...)
-
-  x <- trimws(x)
-
-  # we use perl = TRUE as the default everywhere because
-  # it's both faster and more powerful
-
-  # Add a period if there isn't a sentence ending punctuation
-  x <- ifelse(grepl("[?!.]$", x, perl = TRUE), x, paste0(x, "."))
-
-  # 2 or more spaces into 1 space
-  x <- gsub("[[:space:]]+", " ", x, perl = TRUE)
-
-  # remove spaces preceding ?!.,;
-  x <- gsub("[[:space:]]([.,?;!])", "\\1", x, perl = TRUE)
-
-  # if there are multiple punctuation characters in a row (possibly separated by
-  # spaces), just keep the first, giving priority to sentence ending ?!. if
-  # present
-  x <-  gsub("[;, ]*([.?!;,] ?)[.?!;, ]*", "\\1", x, perl = TRUE)
-
-  # make sure a space or EOL or digit follows every period or comma. digit
-  # unless it's followd by a digit, indicating its a decimal or numeric
-  # separator and not punctuation.
-  # there should be any ",$" matches at this point
-  x <- gsub("([.,])(?![[:digit:]]| |$)", "\\1 ", x, perl = TRUE)
-
-  # make sure a space or EOL follows every ?!;
-  x <- gsub("([?!;])(?! |$)", "\\1 ", x, perl = TRUE)
-
-  # Capatilize first letter following a .?! or at the start of the string
-  x <- gsub("(^|[.?!] )([[:lower:]])", "\\1\\U\\2", x, perl = TRUE)
-
-  x
-}
 
 
 #' Wrap strings
 #'
-#' These are a series of helpers to help wrap strings with two flanking characters
+#' Wrap strings with flanking characters
 #'
 #' @param x character to wrap
 #' @param left character
 #' @param right character
+#' @param ... passed to \code{paste} before wrapping
 #'
 #' @rdname wrap
 #' @export
-#' @seealso paste-variants sentence unwrap
+#' @seealso \code{\link{unwrap}} \code{\link{p}} \code{\link{sentence}}
+#' \code{\link[base]{paste}}
 #' @examples
-#' wrap("abc", "__")
-#' sngl_quote("abc")
-#' dbl_quote("abc")
-#' parens("abc")
-#' bracket("abc")
-#' (x <- p("name", parens("attribute")))
+#' wrap("abc", "__")  #  __abc__
+#' parens("abc")      #   (abc)
+#' sngl_quote("abc")  #   'abc'
+#' dbl_quote("abc")   #   "abc"
+#' bracket("abc")     #   [abc]
+#' brace("abc")       #   {abc}
+#'
+#' label <- p("name", parens("attribute"))
+#'
+#' label             # "name (attribute)"
+#' unparens(label)   # "name attribute"
 wrap <- function(x, left = "", right = left)
   paste0(left, x, right)
 
 #' @rdname wrap
 #' @export
-dbl_quote <- function(x) wrap(x, '"')
+dbl_quote <- function(...) wrap(paste(...), '"')
 
 #' @rdname wrap
 #' @export
-sngl_quote <- function(x) wrap(x, "'")
+sngl_quote <- function(...) wrap(paste(...), "'")
 
 #' @rdname wrap
 #' @export
-bracket <- function(x) wrap(x, "[", "]")
+bracket <- function(...) wrap(paste(...), "[", "]")
 
 #' @rdname wrap
 #' @export
-brace <- function(x) wrap(x, "{", "}")
+brace <- function(...) wrap(paste(...), "{", "}")
 
 #' @rdname wrap
 #' @export
-parens <- function(x) wrap(x, "(", ")")
