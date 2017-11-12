@@ -31,7 +31,7 @@
 #' compare("whitespace:added ,or removed ; like this.and this")
 #' compare("periods and commas in numbers like 1,234.567 are fine !")
 #' compare("colons can be punctuation or time : 12:00 !")
-#' compare("only one punctuation at a time!.?,;")
+#' compare("only one punctuation mark at a time!.?,;")
 #' compare("The first mark ,; is kept;,,with priority for terminal marks ;,.")
 #'
 #' # vectorized like paste()
@@ -57,15 +57,19 @@ sentence <- function(...) {
   x <- lgsub("[[:space:]]([.,?;:!])", "\\1")
 
   # if there are multiple punctuation characters in a row (possibly separated by
-  # spaces), just keep the first, giving priority to terminal marks ?!. if present
-  # first, look for sequences that contain ?!., and capture that and possibly a space
+  # spaces), just keep the first, giving priority to terminal marks ?!. if
+  # present.
+
+  ## first, look for sequences that contain ?!., and capture that and possibly a
+  ## space
   x <- lgsub("[;:, ]*([.?!] ?)[.?!:;,]*( ?)[.?!:;, ]*", "\\1\\2")
 
-  # next, look for sequences that contain ,;: and capture the first one possibly a space
+  ## next, look for sequences that contain ,;: and capture the first one possibly
+  ## a space
   x <- lgsub("([,;:])[;:,]*( ?)[;, ]*", "\\1\\2")
 
-  # make sure a space or EOL or digit follows every period or comma or colon. digit
-  # unless it's followd by a digit, indicating its a decimal or numeric
+  # make sure a space or EOL or digit follows every period or comma or colon.
+  # digit unless it's followd by a digit, indicating its a decimal or numeric
   # separator or time separator and not punctuation.
   # there should not be any ",$" matches at this point
   x <- lgsub("([.,:])(?![[:digit:] ]|$)", "\\1 ")

@@ -36,7 +36,7 @@ compare("capitilized and period added")
 compare("whitespace:added ,or removed ; like this.and this")
 compare("periods and commas in numbers like 1,234.567 are fine !")
 compare("colons can be punctuation or time : 12:00 !")
-compare("only one punctuation at a time!.?,;")
+compare("only one punctuation mark at a time!.?,;")
 compare("The first mark ,; is kept;,,with priority for terminal marks ;,.")
 
 # vectorized like paste()
