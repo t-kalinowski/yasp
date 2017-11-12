@@ -1,5 +1,7 @@
 # yasp: Yet Another String Package
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/yasp)](https://cran.r-project.org/package=yasp)
+
 yasp is a small `R` package for working with character vectors. It is written
 in pure base `R` and has no dependancies. It includes:
 

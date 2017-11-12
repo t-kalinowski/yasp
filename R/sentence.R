@@ -6,18 +6,18 @@
 #' \enumerate{
 #'    \item trims leading and trailing whitespace
 #'    \item collapses runs of whitespace into a single space
-#'    \item appends a period (\code{.}) if there is no sentence ending
-#'          punctuation (\code{?}, \code{!}, or \code{.})
-#'    \item removes spaces preceding punctuation characters: \code{.?!,:;}
-#'    \item collapses sequences of punctuation characters (\code{.?!:;,}) (possibly
-#'          separated by spaces), into a single punctuation character. The first
-#'          punctuation character of the sequence is used, with priority given to
-#'          sentence ending punctuation \code{.?!} if present
+#'    \item appends a period (\code{.}) if there is no terminal punctuation
+#'          mark (\code{.}, \code{?}, or \code{!})
+#'    \item removes spaces preceding punctuation characters: \code{.?!,;:}
+#'    \item collapses sequences of punctuation marks (\code{.?!,;:}) (possibly
+#'          separated by spaces), into a single punctuation mark.
+#'          The first punctuation mark of the sequence is used, with
+#'          priority given to terminal punctuation marks \code{.?!} if present
 #'    \item makes sure a space or end-of-string follows every one of
-#'          \code{.?!;:}, with an exception for the special case of \code{.,:}
-#'          followed by a digit, indicating the punctuation is decimal period, a
+#'          \code{.?!,;:}, with an exception for the special case of \code{.,:}
+#'          followed by a digit, indicating the punctuation is decimal period,
 #'          number separator, or time delimiter
-#'    \item capitalizes the first letter of each sentence (start of string or
+#'    \item capitalizes the first letter of each sentence (start-of-string or
 #'          following a \code{.?!})
 #' }
 #'
