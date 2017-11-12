@@ -28,12 +28,10 @@ pcsc(..., sep = "")
 pc_and(..., sep = "")
 }
 \arguments{
-\item{...}{passed on to \code{base::paste}}
-
-\item{sep}{passed on to \code{base::paste}}
+\item{..., sep}{passed on to \code{\link[base:paste]{base::paste}}}
 }
 \description{
-Wrappers around \code{base::paste} with a variety of defaults:
+Wrappers around \code{\link[base:paste]{base::paste}} with a variety of defaults:
 \tabular{llcc}{
    \code{}         \tab \strong{mnemonic}        \tab \strong{\code{collapse=}} \tab \strong{\code{sep=}} \cr
    \code{p()}      \tab paste                    \tab \code{NULL}               \tab \code{" "}   \cr
@@ -66,5 +64,5 @@ pc_and(x[1:3])
 pc_and(x, y)
 }
 \seealso{
-\code{\link[base]{paste}} \code{\link{wrap}} \code{\link{sentence}}
+\code{\link{wrap}} \code{\link{sentence}}
 }

@@ -1,6 +1,6 @@
 #' paste variants
 #'
-#' Wrappers around \code{base::paste} with a variety of defaults:
+#' Wrappers around \code{\link[base:paste]{base::paste}} with a variety of defaults:
 #' \tabular{llcc}{
 #'    \code{}         \tab \strong{mnemonic}        \tab \strong{\code{collapse=}} \tab \strong{\code{sep=}} \cr
 #'    \code{p()}      \tab paste                    \tab \code{NULL}               \tab \code{" "}   \cr
@@ -13,10 +13,9 @@
 #'    \code{pc_and()} \tab paste collapse and       \tab \emph{varies}             \tab \code{""}    \cr
 #' }
 #'
-#' @param ... passed on to \code{base::paste}
-#' @param sep passed on to \code{base::paste}
+#' @param ...,sep passed on to \code{\link[base:paste]{base::paste}}
 #' @export
-#' @seealso \code{\link[base]{paste}} \code{\link{wrap}} \code{\link{sentence}}
+#' @seealso \code{\link{wrap}} \code{\link{sentence}}
 #' @rdname paste-variants
 #' @examples
 #' x <- head(letters, 3)
@@ -90,22 +89,17 @@ pc_and <- function(..., sep = "") {
 }
 
 
-
-
-
 #' Wrap strings
 #'
 #' Wrap strings with flanking characters
 #'
 #' @param x character to wrap
-#' @param left character
-#' @param right character
-#' @param ... passed to \code{paste} before wrapping
+#' @param left,right character pair to wrap with
+#' @param ... passed to \code{\link[base:paste]{base::paste}} before wrapping
 #'
 #' @rdname wrap
 #' @export
-#' @seealso \code{\link{unwrap}} \code{\link{p}} \code{\link{sentence}}
-#' \code{\link[base]{paste}}
+#' @seealso \code{\link{unwrap}} \code{\link{p0}} \code{\link{sentence}}
 #' @examples
 #' wrap("abc", "__")  #  __abc__
 #' parens("abc")      #   (abc)
@@ -140,3 +134,4 @@ brace <- function(...) wrap(paste(...), "{", "}")
 #' @rdname wrap
 #' @export
 parens <- function(...) wrap(paste(...), "(", ")")
+

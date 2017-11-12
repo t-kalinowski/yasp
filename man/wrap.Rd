@@ -9,7 +9,7 @@
 \alias{parens}
 \title{Wrap strings}
 \usage{
-wrap(x, left = "", right = left)
+wrap(x, left, right = left)
 
 dbl_quote(...)
 
@@ -24,11 +24,9 @@ parens(...)
 \arguments{
 \item{x}{character to wrap}
 
-\item{left}{character}
+\item{left, right}{character pair to wrap with}
 
-\item{right}{character}
-
-\item{...}{passed to \code{paste} before wrapping}
+\item{...}{passed to \code{\link[base:paste]{base::paste}} before wrapping}
 }
 \description{
 Wrap strings with flanking characters
@@ -47,6 +45,5 @@ label             # "name (attribute)"
 unparens(label)   # "name attribute"
 }
 \seealso{
-\code{\link{unwrap}} \code{\link{p}} \code{\link{sentence}}
-\code{\link[base]{paste}}
+\code{\link{unwrap}} \code{\link{p0}} \code{\link{sentence}}
 }
