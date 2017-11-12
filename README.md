@@ -110,7 +110,7 @@ whitespace) appropriate for prose sentences. It
   + capitalizes the first letter of each sentence (start-of-string or
       following a `.?!`)
       
-From the examples in `?sentence`
+Some examples in `?sentence`:
 ``` r
 compare <- function(x) cat(sprintf(' in: "%s"\nout: "%s"\n', x, sentence(x)))
 
