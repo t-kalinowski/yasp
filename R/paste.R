@@ -31,10 +31,12 @@
 #' pcc(x, y)
 #' pcsc(x)
 #' pcnl(x)
-#' pc_and(x[1])
 #' pc_and(x[1:2])
 #' pc_and(x[1:3])
 #' pc_and(x, y)
+#' pc_and(x, y, sep = "-")
+#' pc_and(x[1])
+#' pc_and(x[0])
 p <- function(...) paste(...)
 
 # paste0
@@ -76,16 +78,16 @@ pcsc <- function(..., sep = "")
 #' @rdname paste-variants
 #' @export
 pc_and <- function(..., sep = "") {
-  x <- paste(..., sep = sep)
+  x <- paste(..., sep = sep, collapse = NULL)
   lx <- length(x)
-  switch( as.character(lx),
-    "0" = "",
-    "1" = x,
-    "2" = paste(x, collapse = " and "),
-    # else
+  if(lx == 0L)
+    ""
+  else if (lx == 1L)
+    x
+  else if (lx == 2L)
+    paste(x, collapse = " and ")
+  else
     paste0( paste0(x[-lx], collapse = ", "), ", and ", x[lx])
-
-  )
 }
 
 

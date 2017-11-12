@@ -58,10 +58,12 @@ pcc(x)
 pcc(x, y)
 pcsc(x)
 pcnl(x)
-pc_and(x[1])
 pc_and(x[1:2])
 pc_and(x[1:3])
 pc_and(x, y)
+pc_and(x, y, sep = "-")
+pc_and(x[1])
+pc_and(x[0])
 }
 \seealso{
 \code{\link{wrap}} \code{\link{sentence}}
