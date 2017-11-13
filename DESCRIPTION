@@ -1,7 +1,7 @@
 Package: yasp
 Type: Package
 Title: String Functions for Compact and Expressive Code
-Version: 0.1.0
+Version: 0.1.0.9000
 Author: Tomasz Kalinowski
 Maintainer: Tomasz Kalinowski <tkalinow@asu.edu>
 Description: A collection of string functions designed for writing more
