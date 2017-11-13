@@ -8,7 +8,7 @@ in pure base `R` and has no dependancies. It includes:
 ### `paste` wrappers with short names and various defaults
 
 |             | mnemonic                  | `collapse=`| `sep=` |
-| :---------- | :------------------------ | :--------- | :----- |
+| :---------- | :------------------------ | :--------: | :----: |
 | `p()`       | paste                     | `NULL`     | `" "`  |
 | `p0()`      | paste0                    | `NULL`     | `""`   |
 | `pc()`      | paste collapse            | `""`       | `""`   |
