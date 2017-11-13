@@ -19,7 +19,7 @@ in pure base `R` and has no dependancies. It includes:
 | `pc_and()`  | paste collapse and        | _varies_   | `""`   |
 
 `pc_and` collapses vectors of length 3 or greater using a serial comma (aka, oxford comma)
-```
+``` r
 pc_and( letters[1:2] )  # "a and b"
 pc_and( letters[1:3] )  # "a, b, and c"
 ```
@@ -55,7 +55,7 @@ data.frame( x, unparens(x), check.names = FALSE )
 #> 6 (a) (b)         a b
 ```
 specify `n_pairs` to remove a specific number of pairs
-```
+``` r
 x <- c("(a)", "((a))", "(((a)))", "(a) (b)", "(a) (b) (c)", "(a) (b) (c) (d)")
 data.frame( x, "n_pairs=1"   = unparens(x, n_pairs = 1),
                "n_pairs=2"   = unparens(x, n_pairs = 2),
@@ -72,13 +72,13 @@ data.frame( x, "n_pairs=1"   = unparens(x, n_pairs = 1),
 #> 6 (a) (b) (c) (d) a (b) (c) (d) a b (c) (d) a b c (d)     a b c d
 ```
 use `unwrap()` to specify any pair of characters for left and right
-```
+``` r
 x <- "A string with some \\emph{latex tags}."
 unwrap(x, "\\emph{", "}")
 #> [1] "A string with some latex tags."
 ```
 by default, only pairs are removed. Set a character to `""` to override.
-```
+``` r
 x <- c("a)", "a))", "(a", "((a" )
 data.frame(x, unparens(x), 'left=""' = unwrap(x, left = "", right = ")"),
            check.names = FALSE)
@@ -143,7 +143,11 @@ sentence(
 
 ## Installation
 
-You can install yasp from github with:
+You can install 'yasp' from CRAN with:
+``` r
+install.packages("yasp")
+```
+Or install from github with:
 
 ``` r
 # install.packages("devtools")
