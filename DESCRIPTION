@@ -7,11 +7,11 @@ Maintainer: Tomasz Kalinowski <tkalinow@asu.edu>
 Description: A collection of string functions designed for writing more
     compact and expressive code. 'yasp' (Yet Another String Package) is simple,
     fast, dependency-free, and written in pure R. The package provides: a
-    coherent set of abbreviations for paste() from package 'base' with a 
-    variety of defaults, such as p() for "paste" and pcc() for "paste and 
-    collapse with commas"; wrap(), bracket(), and others for wrapping a 
-    string in flanking characters; unwrap() for removing pairs of characters 
-    (at any position in a string); and sentence() for cleaning whitespace 
+    coherent set of abbreviations for paste() from package 'base' with a
+    variety of defaults, such as p() for "paste" and pcc() for "paste and
+    collapse with commas"; wrap(), bracket(), and others for wrapping a
+    string in flanking characters; unwrap() for removing pairs of characters
+    (at any position in a string); and sentence() for cleaning whitespace
     around punctuation and capitalization appropriate for prose sentences.
 License: MIT + file LICENSE
 URL: https://github.com/t-kalinowski/yasp
