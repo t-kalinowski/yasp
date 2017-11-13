@@ -2,15 +2,16 @@
 #'
 #' Wrappers around \code{\link[base:paste]{base::paste}} with a variety of defaults:
 #' \tabular{llcc}{
-#'    \code{}         \tab \strong{mnemonic}        \tab \strong{\code{collapse=}} \tab \strong{\code{sep=}} \cr
-#'    \code{p()}      \tab paste                    \tab \code{NULL}               \tab \code{" "}   \cr
-#'    \code{p0()}     \tab paste0                   \tab \code{NULL}               \tab \code{""}    \cr
-#'    \code{pc()}     \tab paste collapse           \tab \code{""}                 \tab \code{""}    \cr
-#'    \code{pcs()}    \tab paste collapse space     \tab \code{" "}                \tab \code{""}    \cr
-#'    \code{pcc()}    \tab paste collapse comma     \tab \code{", "}               \tab \code{""}    \cr
-#'    \code{pcsc()}   \tab paste collapse semicolon \tab \code{"; "}               \tab \code{""}    \cr
-#'    \code{pcnl()}   \tab paste collapse newline   \tab \code{"\n"}               \tab \code{""}    \cr
-#'    \code{pc_and()} \tab paste collapse and       \tab \emph{varies}             \tab \code{""}    \cr
+#'    \code{}         \tab \strong{mnemonic}         \tab \strong{\code{collapse=}} \tab \strong{\code{sep=}} \cr
+#'    \code{p()}      \tab paste                     \tab \code{NULL}               \tab \code{" "}   \cr
+#'    \code{p0()}     \tab paste0                    \tab \code{NULL}               \tab \code{""}    \cr
+#'    \code{pc()}     \tab paste collapse            \tab \code{""}                 \tab \code{""}    \cr
+#'    \code{pcs()}    \tab paste collapse space      \tab \code{" "}                \tab \code{""}    \cr
+#'    \code{pcu()}    \tab paste collapse underscore \tab \code{"_"}                \tab \code{""}    \cr
+#'    \code{pcc()}    \tab paste collapse comma      \tab \code{", "}               \tab \code{""}    \cr
+#'    \code{pcsc()}   \tab paste collapse semicolon  \tab \code{"; "}               \tab \code{""}    \cr
+#'    \code{pcnl()}   \tab paste collapse newline    \tab \code{"\n"}               \tab \code{""}    \cr
+#'    \code{pc_and()} \tab paste collapse and        \tab \emph{varies}             \tab \code{""}    \cr
 #' }
 #'
 #' @param ...,sep passed on to \code{\link[base:paste]{base::paste}}
@@ -27,6 +28,7 @@
 #' pc(x)
 #' pc(x, y)
 #' pcs(x)
+#' pcu(x)
 #' pcc(x)
 #' pcc(x, y)
 #' pcsc(x)
@@ -67,6 +69,12 @@ pcnl <- function(..., sep = "")
 #' @export
 pcc <- function(..., sep = "")
   paste(..., sep = sep, collapse = ", ")
+
+# paste collapse underscore
+#' @rdname paste-variants
+#' @export
+pcu <- function(..., sep = "")
+  paste(..., sep = sep, collapse = "_")
 
 # paste collapse semicolon
 #' @rdname paste-variants

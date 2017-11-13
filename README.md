@@ -7,16 +7,17 @@ in pure base `R` and has no dependancies. It includes:
 
 ### `paste` wrappers with short names and various defaults
 
-|             | mnemonic                 | `collapse=`| `sep=` |
-| :---------- | :----------------------- | :--------- | :----- |
-| `p()`       | paste                    | `NULL`     | `" "`  |
-| `p0()`      | paste0                   | `NULL`     | `""`   |
-| `pc()`      | paste collapse           | `""`       | `""`   |
-| `pcs()`     | paste collapse space     | `" "`      | `""`   |
-| `pcc()`     | paste collapse comma     | `", "`     | `""`   |
-| `pcsc()`    | paste collapse semicolon | `"; "`     | `""`   |
-| `pcnl()`    | paste collapse newline   | `"\n"`     | `""`   |
-| `pc_and()`  | paste collapse and	     | _varies_   | `""`   |
+|             | mnemonic                  | `collapse=`| `sep=` |
+| :---------- | :------------------------ | :--------- | :----- |
+| `p()`       | paste                     | `NULL`     | `" "`  |
+| `p0()`      | paste0                    | `NULL`     | `""`   |
+| `pc()`      | paste collapse            | `""`       | `""`   |
+| `pcs()`     | paste collapse space      | `" "`      | `""`   |
+| `pcu()`     | paste collapse underscore | `"_"`      | `""`   |
+| `pcc()`     | paste collapse comma      | `", "`     | `""`   |
+| `pcsc()`    | paste collapse semicolon  | `"; "`     | `""`   |
+| `pcnl()`    | paste collapse newline    | `"\n"`     | `""`   |
+| `pc_and()`  | paste collapse and        | _varies_   | `""`   |
 
 `pc_and` collapses vectors of length 3 or greater using a serial comma (aka, oxford comma)
 ```
