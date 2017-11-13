@@ -43,6 +43,12 @@ label <- p("name", parens("attribute"))
 
 label             # "name (attribute)"
 unparens(label)   # "name attribute"
+
+# make your own function like this:
+# markdown bold
+bold <- function(...) wrap(paste(...), "**")
+p("make a word", bold("bold"))
+# see unbold example in ?unwrap
 }
 \seealso{
 \code{\link{unwrap}} \code{\link{p0}} \code{\link{sentence}}

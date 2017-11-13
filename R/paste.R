@@ -7,7 +7,6 @@
 #'    \code{p0()}     \tab paste0                    \tab \code{NULL}               \tab \code{""}    \cr
 #'    \code{pc()}     \tab paste collapse            \tab \code{""}                 \tab \code{""}    \cr
 #'    \code{pcs()}    \tab paste collapse space      \tab \code{" "}                \tab \code{""}    \cr
-#'    \code{pcu()}    \tab paste collapse underscore \tab \code{"_"}                \tab \code{""}    \cr
 #'    \code{pcc()}    \tab paste collapse comma      \tab \code{", "}               \tab \code{""}    \cr
 #'    \code{pcsc()}   \tab paste collapse semicolon  \tab \code{"; "}               \tab \code{""}    \cr
 #'    \code{pcnl()}   \tab paste collapse newline    \tab \code{"\n"}               \tab \code{""}    \cr
@@ -28,7 +27,6 @@
 #' pc(x)
 #' pc(x, y)
 #' pcs(x)
-#' pcu(x)
 #' pcc(x)
 #' pcc(x, y)
 #' pcsc(x)
@@ -58,11 +56,26 @@ pc <- function(..., sep = "")
 pcs <- function(..., sep = "")
   paste(..., sep = sep, collapse = " ")
 
-# paste collapse new line
-#' @rdname paste-variants
-#' @export
-pcnl <- function(..., sep = "")
-  paste(..., sep = sep, collapse = "\n")
+## removing for now to keep the total number of exported function low
+#
+# ' # paste collapse underscore
+# ' #' @rdname paste-variants
+# ' #' @export
+# ' pcu <- function(..., sep = "")
+# '   paste(..., sep = sep, collapse = "_")
+#
+# ' # paste collapse dash
+# ' #' @rdname paste-variants
+# ' #' @export
+# ' pcd <- function(..., sep = "")
+# '   paste(..., sep = sep, collapse = "-")
+#
+## lines from documentation tables above and in README
+# '    \code{pcu()}    \tab paste collapse underscore \tab \code{"_"}                \tab \code{""}    \cr
+# | `pcu()`     | paste collapse underscore | `"_"`      | `""`   |
+#
+# ## from examples
+# # ' pcu(x)
 
 # paste collapse comma
 #' @rdname paste-variants
@@ -70,11 +83,11 @@ pcnl <- function(..., sep = "")
 pcc <- function(..., sep = "")
   paste(..., sep = sep, collapse = ", ")
 
-# paste collapse underscore
+# paste collapse new line
 #' @rdname paste-variants
 #' @export
-pcu <- function(..., sep = "")
-  paste(..., sep = sep, collapse = "_")
+pcnl <- function(..., sep = "")
+  paste(..., sep = sep, collapse = "\n")
 
 # paste collapse semicolon
 #' @rdname paste-variants
@@ -122,6 +135,12 @@ pc_and <- function(..., sep = "") {
 #'
 #' label             # "name (attribute)"
 #' unparens(label)   # "name attribute"
+#'
+#' # make your own function like this:
+#' # markdown bold
+#' bold <- function(...) wrap(paste(...), "**")
+#' p("make a word", bold("bold"))
+#' # see unbold example in ?unwrap
 wrap <- function(x, left, right = left)
   paste0(left, x, right)
 

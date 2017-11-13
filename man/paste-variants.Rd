@@ -5,9 +5,8 @@
 \alias{p0}
 \alias{pc}
 \alias{pcs}
-\alias{pcnl}
 \alias{pcc}
-\alias{pcu}
+\alias{pcnl}
 \alias{pcsc}
 \alias{pc_and}
 \title{paste variants}
@@ -20,11 +19,9 @@ pc(..., sep = "")
 
 pcs(..., sep = "")
 
-pcnl(..., sep = "")
-
 pcc(..., sep = "")
 
-pcu(..., sep = "")
+pcnl(..., sep = "")
 
 pcsc(..., sep = "")
 
@@ -41,7 +38,6 @@ Wrappers around \code{\link[base:paste]{base::paste}} with a variety of defaults
    \code{p0()}     \tab paste0                    \tab \code{NULL}               \tab \code{""}    \cr
    \code{pc()}     \tab paste collapse            \tab \code{""}                 \tab \code{""}    \cr
    \code{pcs()}    \tab paste collapse space      \tab \code{" "}                \tab \code{""}    \cr
-   \code{pcu()}    \tab paste collapse underscore \tab \code{"_"}                \tab \code{""}    \cr
    \code{pcc()}    \tab paste collapse comma      \tab \code{", "}               \tab \code{""}    \cr
    \code{pcsc()}   \tab paste collapse semicolon  \tab \code{"; "}               \tab \code{""}    \cr
    \code{pcnl()}   \tab paste collapse newline    \tab \code{"\n"}               \tab \code{""}    \cr
@@ -58,7 +54,6 @@ p0(x, y)
 pc(x)
 pc(x, y)
 pcs(x)
-pcu(x)
 pcc(x)
 pcc(x, y)
 pcsc(x)

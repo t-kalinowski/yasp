@@ -36,7 +36,14 @@
 #' data.frame(x, unparens(x),
 #'   'left=""' = unwrap(x, left = "", right = ")"),
 #'   check.names = FALSE)
-unwrap <- function(x, left = "", right = left, n_pairs = Inf) {
+#'
+#' # make your own functions like this
+#' # markdown bold
+#' unbold <- function(x) unwrap(x, "**")
+#' bold <- function(...) wrap(paste(...), "**")
+#' (x <- (p("make a word", bold("bold"))))
+#' unbold(x)
+unwrap <- function(x, left, right = left, n_pairs = Inf) {
 
   repeat {
 
@@ -73,6 +80,7 @@ unwrap <- function(x, left = "", right = left, n_pairs = Inf) {
   }
   x
 }
+
 
 #' @export
 #' @rdname unwrap

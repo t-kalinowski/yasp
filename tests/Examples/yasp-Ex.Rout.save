@@ -31,7 +31,7 @@ Type 'q()' to quit R.
 > 
 > ### Name: p
 > ### Title: paste variants
-> ### Aliases: p p0 pc pcs pcnl pcc pcsc pc_and
+> ### Aliases: p p0 pc pcs pcc pcnl pcsc pc_and
 > 
 > ### ** Examples
 > 
@@ -169,6 +169,15 @@ out: "The first mark, is kept; with priority for terminal marks."
 3  (a          (a      (a
 4 ((a         ((a     ((a
 > 
+> # make your own functions like this
+> # markdown bold
+> unbold <- function(x) unwrap(x, "**")
+> bold <- function(...) wrap(paste(...), "**")
+> (x <- (p("make a word", bold("bold"))))
+[1] "make a word **bold**"
+> unbold(x)
+[1] "make a word bold"
+> 
 > 
 > 
 > cleanEx()
@@ -203,13 +212,20 @@ out: "The first mark, is kept; with priority for terminal marks."
 > unparens(label)   # "name attribute"
 [1] "name attribute"
 > 
+> # make your own function like this:
+> # markdown bold
+> bold <- function(...) wrap(paste(...), "**")
+> p("make a word", bold("bold"))
+[1] "make a word **bold**"
+> # see unbold example in ?unwrap
+> 
 > 
 > 
 > ### * <FOOTER>
 > ###
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.196 0.009 0.207 0 0 
+Time elapsed:  0.18 0.008 0.188 0 0 
 > grDevices::dev.off()
 null device 
           1 

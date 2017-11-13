@@ -5,7 +5,7 @@
 \alias{unparens}
 \title{unwrap}
 \usage{
-unwrap(x, left = "", right = left, n_pairs = Inf)
+unwrap(x, left, right = left, n_pairs = Inf)
 
 unparens(x, n_pairs = Inf)
 }
@@ -48,6 +48,13 @@ x <- c("a)", "a))", "(a", "((a" )
 data.frame(x, unparens(x),
   'left=""' = unwrap(x, left = "", right = ")"),
   check.names = FALSE)
+
+# make your own functions like this
+# markdown bold
+unbold <- function(x) unwrap(x, "**")
+bold <- function(...) wrap(paste(...), "**")
+(x <- (p("make a word", bold("bold"))))
+unbold(x)
 }
 \seealso{
 \code{\link{wrap}}

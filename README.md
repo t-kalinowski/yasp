@@ -13,7 +13,6 @@ in pure base `R` and has no dependancies. It includes:
 | `p0()`      | paste0                    | `NULL`     | `""`   |
 | `pc()`      | paste collapse            | `""`       | `""`   |
 | `pcs()`     | paste collapse space      | `" "`      | `""`   |
-| `pcu()`     | paste collapse underscore | `"_"`      | `""`   |
 | `pcc()`     | paste collapse comma      | `", "`     | `""`   |
 | `pcsc()`    | paste collapse semicolon  | `"; "`     | `""`   |
 | `pcnl()`    | paste collapse newline    | `"\n"`     | `""`   |
