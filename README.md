@@ -26,14 +26,14 @@ pc_and( letters[1:3] )  # "a, b, and c"
 
 ### `wrap` and variants
 Wrap a string with some characters
-
-* `wrap("x", left = "", right = left)`
-* `dbl_quote("x")`  -->  `"\"x\""`
-* `sngl_quote("x")` --> `"'x'"`
-* `parens("x")`     -->     `"(x)"` 
-* `bracket("x")`    -->    `"[x]"`
-* `brace("x")`      -->    `"{x}"`
-
+```
+wrap("abc", "__")  #  __abc__
+dbl_quote("abc")   #   "abc"
+sngl_quote("abc")  #   'abc'
+parens("abc")      #   (abc)
+bracket("abc")     #   [abc]
+brace("abc")       #   {abc}
+```
 
 ### `unwrap`, `unparens`
 Remove pairs of characters from a string
