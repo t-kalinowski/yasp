@@ -146,21 +146,21 @@ wrap <- function(x, left, right = left)
 
 #' @rdname wrap
 #' @export
-dbl_quote <- function(...) wrap(paste(...), '"')
+dbl_quote <- function(..., sep = "") wrap(paste(..., sep = sep), '"')
 
 #' @rdname wrap
 #' @export
-sngl_quote <- function(...) wrap(paste(...), "'")
+sngl_quote <- function(..., sep = "") wrap(paste(..., sep = sep), "'")
 
 #' @rdname wrap
 #' @export
-bracket <- function(...) wrap(paste(...), "[", "]")
+bracket <- function(..., sep = "") wrap(paste(..., sep = sep), "[", "]")
 
 #' @rdname wrap
 #' @export
-brace <- function(...) wrap(paste(...), "{", "}")
+brace <- function(..., sep = "") wrap(paste(..., sep = sep), "{", "}")
 
 #' @rdname wrap
 #' @export
-parens <- function(...) wrap(paste(...), "(", ")")
+parens <- function(..., sep = "") wrap(paste(..., sep = sep), "(", ")")
 

@@ -11,15 +11,15 @@
 \usage{
 wrap(x, left, right = left)
 
-dbl_quote(...)
+dbl_quote(..., sep = "")
 
-sngl_quote(...)
+sngl_quote(..., sep = "")
 
-bracket(...)
+bracket(..., sep = "")
 
-brace(...)
+brace(..., sep = "")
 
-parens(...)
+parens(..., sep = "")
 }
 \arguments{
 \item{x}{character to wrap}
