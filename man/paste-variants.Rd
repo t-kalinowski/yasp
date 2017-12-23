@@ -9,6 +9,7 @@
 \alias{pcnl}
 \alias{pcsc}
 \alias{pc_and}
+\alias{pc_or}
 \title{paste variants}
 \usage{
 p(...)
@@ -26,6 +27,8 @@ pcnl(..., sep = "")
 pcsc(..., sep = "")
 
 pc_and(..., sep = "")
+
+pc_or(..., sep = "")
 }
 \arguments{
 \item{..., sep}{passed on to \code{\link[base:paste]{base::paste}}}
@@ -42,6 +45,7 @@ Wrappers around \code{\link[base:paste]{base::paste}} with a variety of defaults
    \code{pcsc()}   \tab paste collapse semicolon  \tab \code{"; "}               \tab \code{""}    \cr
    \code{pcnl()}   \tab paste collapse newline    \tab \code{"\n"}               \tab \code{""}    \cr
    \code{pc_and()} \tab paste collapse and        \tab \emph{varies}             \tab \code{""}    \cr
+   \code{pc_or()}  \tab paste collapse or         \tab \emph{varies}             \tab \code{""}    \cr
 }
 }
 \examples{
@@ -60,6 +64,8 @@ pcsc(x)
 pcnl(x)
 pc_and(x[1:2])
 pc_and(x[1:3])
+pc_or(x[1:2])
+pc_or(x[1:3])
 pc_and(x, y)
 pc_and(x, y, sep = "-")
 pc_and(x[1])

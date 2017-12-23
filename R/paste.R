@@ -11,6 +11,7 @@
 #'    \code{pcsc()}   \tab paste collapse semicolon  \tab \code{"; "}               \tab \code{""}    \cr
 #'    \code{pcnl()}   \tab paste collapse newline    \tab \code{"\n"}               \tab \code{""}    \cr
 #'    \code{pc_and()} \tab paste collapse and        \tab \emph{varies}             \tab \code{""}    \cr
+#'    \code{pc_or()}  \tab paste collapse or         \tab \emph{varies}             \tab \code{""}    \cr
 #' }
 #'
 #' @param ...,sep passed on to \code{\link[base:paste]{base::paste}}
@@ -33,6 +34,8 @@
 #' pcnl(x)
 #' pc_and(x[1:2])
 #' pc_and(x[1:3])
+#' pc_or(x[1:2])
+#' pc_or(x[1:3])
 #' pc_and(x, y)
 #' pc_and(x, y, sep = "-")
 #' pc_and(x[1])
@@ -110,6 +113,22 @@ pc_and <- function(..., sep = "") {
   else
     paste0( paste0(x[-lx], collapse = ", "), ", and ", x[lx])
 }
+
+# paste collapse or
+#' @rdname paste-variants
+#' @export
+pc_or <- function (..., sep = "") {
+  x <- paste(..., sep = sep, collapse = NULL)
+  lx <- length(x)
+  if (lx == 0L)
+    ""
+  else if (lx == 1L)
+    x
+  else if (lx == 2L)
+    paste0(x, collapse = " or ")
+  else paste0(paste0(x[-lx], collapse = ", "), ", or ", x[lx])
+}
+
 
 
 #' Wrap strings
