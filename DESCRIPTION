@@ -2,8 +2,8 @@ Package: yasp
 Type: Package
 Title: String Functions for Compact and Expressive Code
 Version: 0.1.0.9000
-Author: Tomasz Kalinowski
-Maintainer: Tomasz Kalinowski <tkalinow@asu.edu>
+Authors@R: person("Tomasz", "Kalinowski", email = "tkalinow@asu.edu",
+                  role = c("aut", "cre"))
 Description: A collection of string functions designed for writing more
     compact and expressive code. 'yasp' (Yet Another String Package) is simple,
     fast, dependency-free, and written in pure R. The package provides: a

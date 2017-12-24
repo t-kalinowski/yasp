@@ -1,4 +1,4 @@
-# yasp: Yet Another String Package
+# yasp: String Functions for Compact and Expressive Code
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/yasp)](https://cran.r-project.org/package=yasp)
 
@@ -19,7 +19,8 @@ in pure base `R` and has no dependancies. It includes:
 | `pc_and()`  | paste collapse and        | _varies_   | `""`   |
 | `pc_or()`   | paste collapse or         | _varies_   | `""`   |
 
-`pc_and` and `pc_or` collapses vectors of length 3 or greater using a serial comma (aka, oxford comma)
+`pc_and` and `pc_or` collapses vectors of length 3 or greater using a serial 
+comma (aka, oxford comma)
 ``` r
 pc_and( letters[1:2] )  # "a and b"
 pc_and( letters[1:3] )  # "a, b, and c"
