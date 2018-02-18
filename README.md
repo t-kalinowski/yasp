@@ -1,4 +1,4 @@
-# yasp: String Functions for Compact and Expressive Code
+# yasp: String Functions for Compact R Code
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/yasp)](https://cran.r-project.org/package=yasp)
 
