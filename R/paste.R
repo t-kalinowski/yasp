@@ -2,17 +2,20 @@
 #'
 #' Wrappers around \code{\link[base:paste]{base::paste}} with a variety of defaults:
 #' \tabular{llcc}{
-#'    \code{}         \tab \strong{mnemonic}         \tab \strong{\code{collapse=}} \tab \strong{\code{sep=}} \cr
-#'    \code{p()}      \tab paste                     \tab \code{NULL}               \tab \code{" "}   \cr
-#'    \code{p0()}     \tab paste0                    \tab \code{NULL}               \tab \code{""}    \cr
-#'    \code{pc()}     \tab paste collapse            \tab \code{""}                 \tab \code{""}    \cr
-#'    \code{pcs()}    \tab paste collapse space      \tab \code{" "}                \tab \code{""}    \cr
-#'    \code{pcc()}    \tab paste collapse comma      \tab \code{", "}               \tab \code{""}    \cr
-#'    \code{pcsc()}   \tab paste collapse semicolon  \tab \code{"; "}               \tab \code{""}    \cr
-#'    \code{pcnl()}   \tab paste collapse newline    \tab \code{"\n"}               \tab \code{""}    \cr
-#'    \code{pc_and()} \tab paste collapse and        \tab \emph{varies}             \tab \code{""}    \cr
-#'    \code{pc_or()}  \tab paste collapse or         \tab \emph{varies}             \tab \code{""}    \cr
+#'    \code{}                   \tab \strong{mnemonic}         \tab \strong{\code{collapse=}} \tab \strong{\code{sep=}} \cr
+#'    \code{p()}, \code{p0()}   \tab paste, paste0             \tab \code{NULL}               \tab \code{""}     \cr
+#'    \code{ps()}, \code{pss()} \tab paste (sep) space         \tab \code{NULL}               \tab \code{" "}    \cr
+#'    \code{psh()}              \tab paste sep hyphen          \tab \code{NULL}               \tab \code{"-"}    \cr
+#'    \code{psu()}              \tab paste sep underscore      \tab \code{NULL}               \tab \code{"_"}    \cr
+#'    \code{pc()}               \tab paste collapse            \tab \code{""}                 \tab \code{""}     \cr
+#'    \code{pcs()}              \tab paste collapse space      \tab \code{" "}                \tab \code{""}     \cr
+#'    \code{pcc()}              \tab paste collapse comma      \tab \code{", "}               \tab \code{""}     \cr
+#'    \code{pcsc()}             \tab paste collapse semicolon  \tab \code{"; "}               \tab \code{""}     \cr
+#'    \code{pcnl()}             \tab paste collapse newline    \tab \code{"\n"}               \tab \code{""}     \cr
+#'    \code{pc_and()}           \tab paste collapse and        \tab \emph{varies}             \tab \code{""}     \cr
+#'    \code{pc_or()}            \tab paste collapse or         \tab \emph{varies}             \tab \code{""}     \cr
 #' }
+#'
 #'
 #' @param ...,sep passed on to \code{\link[base:paste]{base::paste}}
 #' @export
@@ -40,7 +43,33 @@
 #' pc_and(x, y, sep = "-")
 #' pc_and(x[1])
 #' pc_and(x[0])
-p <- function(...) paste(...)
+p <- function(..., sep = "") paste(..., sep = sep)
+
+# paste space
+#' @export
+#' @rdname paste-variants
+ps <- function(...) paste(..., sep = " ")
+
+# paste sep space
+#' @export
+#' @rdname paste-variants
+pss <- function(...) paste(..., sep = " ")
+
+# paste sep underscore
+#' @export
+#' @rdname paste-variants
+psu <- function(...) paste(..., sep = "_")
+
+# paste sep hyphen
+#' @export
+#' @rdname paste-variants
+psh <- function(...) paste(..., sep = "-")
+
+
+# ? idea?
+# a fixed width table paste pst() paste sep tab (but an aware tab to make sure entries align...?)
+
+
 
 # paste0
 #' @export
