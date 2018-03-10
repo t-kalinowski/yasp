@@ -18,6 +18,8 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -25,6 +27,70 @@
 <script src="../pkgdown.js"></script>
   
   
+<meta property="og:title" content="paste variants — p" />
+
+<meta property="og:description" content="Wrappers around base::paste with a variety of defaults:
+                      
+ mnemonic         
+ collapse= 
+ sep= 
+
+   p(), p0()   
+ paste, paste0             
+ NULL               
+ ""     
+
+   ps(), pss() 
+ paste (sep) space         
+ NULL               
+ " "    
+
+   psh()              
+ paste sep hyphen          
+ NULL               
+ "-"    
+
+   psu()              
+ paste sep underscore      
+ NULL               
+ "_"    
+
+   pc()               
+ paste collapse            
+ ""                 
+ ""     
+
+   pcs()              
+ paste collapse space      
+ " "                
+ ""     
+
+   pcc()              
+ paste collapse comma      
+ ", "               
+ ""     
+
+   pcsc()             
+ paste collapse semicolon  
+ "; "               
+ ""     
+
+   pcnl()             
+ paste collapse newline    
+ "\n"               
+ ""     
+
+   pc_and()           
+ paste collapse and        
+ varies             
+ ""     
+
+   pc_or()            
+ paste collapse or         
+ varies             
+ ""     
+" />
+<meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -85,59 +151,77 @@
 
     
     <p>Wrappers around <code><a href='http://www.rdocumentation.org/packages/base/topics/paste'>base::paste</a></code> with a variety of defaults:</p><table><tr><td>
-   <code></code>         </td>
+   <code></code>                   </td>
 <td> <strong>mnemonic</strong>         </td>
 <td> <strong><code>collapse=</code></strong> </td>
 <td> <strong><code>sep=</code></strong> </td>
 </tr><tr><td>
-   <code>p()</code>      </td>
-<td> paste                     </td>
+   <code>p()</code>, <code>p0()</code>   </td>
+<td> paste, paste0             </td>
 <td> <code>NULL</code>               </td>
-<td> <code>" "</code>   </td>
+<td> <code>""</code>     </td>
 </tr><tr><td>
-   <code>p0()</code>     </td>
-<td> paste0                    </td>
+   <code>ps()</code>, <code>pss()</code> </td>
+<td> paste (sep) space         </td>
 <td> <code>NULL</code>               </td>
-<td> <code>""</code>    </td>
+<td> <code>" "</code>    </td>
 </tr><tr><td>
-   <code>pc()</code>     </td>
+   <code>psh()</code>              </td>
+<td> paste sep hyphen          </td>
+<td> <code>NULL</code>               </td>
+<td> <code>"-"</code>    </td>
+</tr><tr><td>
+   <code>psu()</code>              </td>
+<td> paste sep underscore      </td>
+<td> <code>NULL</code>               </td>
+<td> <code>"_"</code>    </td>
+</tr><tr><td>
+   <code>pc()</code>               </td>
 <td> paste collapse            </td>
 <td> <code>""</code>                 </td>
-<td> <code>""</code>    </td>
+<td> <code>""</code>     </td>
 </tr><tr><td>
-   <code>pcs()</code>    </td>
+   <code>pcs()</code>              </td>
 <td> paste collapse space      </td>
 <td> <code>" "</code>                </td>
-<td> <code>""</code>    </td>
+<td> <code>""</code>     </td>
 </tr><tr><td>
-   <code>pcc()</code>    </td>
+   <code>pcc()</code>              </td>
 <td> paste collapse comma      </td>
 <td> <code>", "</code>               </td>
-<td> <code>""</code>    </td>
+<td> <code>""</code>     </td>
 </tr><tr><td>
-   <code>pcsc()</code>   </td>
+   <code>pcsc()</code>             </td>
 <td> paste collapse semicolon  </td>
 <td> <code>"; "</code>               </td>
-<td> <code>""</code>    </td>
+<td> <code>""</code>     </td>
 </tr><tr><td>
-   <code>pcnl()</code>   </td>
+   <code>pcnl()</code>             </td>
 <td> paste collapse newline    </td>
 <td> <code>"\n"</code>               </td>
-<td> <code>""</code>    </td>
+<td> <code>""</code>     </td>
 </tr><tr><td>
-   <code>pc_and()</code> </td>
+   <code>pc_and()</code>           </td>
 <td> paste collapse and        </td>
 <td> <em>varies</em>             </td>
-<td> <code>""</code>    </td>
+<td> <code>""</code>     </td>
 </tr><tr><td>
-   <code>pc_or()</code>  </td>
+   <code>pc_or()</code>            </td>
 <td> paste collapse or         </td>
 <td> <em>varies</em>             </td>
-<td> <code>""</code>    </td>
+<td> <code>""</code>     </td>
 </tr></table>
     
 
-    <pre class="usage"><span class='fu'>p</span>(<span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>p</span>(<span class='no'>...</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>""</span>)
+
+<span class='fu'>ps</span>(<span class='no'>...</span>)
+
+<span class='fu'>pss</span>(<span class='no'>...</span>)
+
+<span class='fu'>psu</span>(<span class='no'>...</span>)
+
+<span class='fu'>psh</span>(<span class='no'>...</span>)
 
 <span class='fu'>p0</span>(<span class='no'>...</span>)
 
@@ -173,7 +257,7 @@
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>head</span>(<span class='no'>letters</span>, <span class='fl'>3</span>)
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>tail</span>(<span class='no'>letters</span>, <span class='fl'>3</span>)
 <span class='co'># paste</span>
-<span class='fu'>p</span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt; [1] "a x" "b y" "c z"</div><div class='input'><span class='fu'>p0</span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt; [1] "ax" "by" "cz"</div><div class='input'><span class='co'># paste + collapse</span>
+<span class='fu'>p</span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt; [1] "ax" "by" "cz"</div><div class='input'><span class='fu'>p0</span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt; [1] "ax" "by" "cz"</div><div class='input'><span class='co'># paste + collapse</span>
 <span class='fu'>pc</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "abc"</div><div class='input'><span class='fu'>pc</span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt; [1] "axbycz"</div><div class='input'><span class='fu'>pcs</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "a b c"</div><div class='input'><span class='fu'>pcc</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "a, b, c"</div><div class='input'><span class='fu'>pcc</span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt; [1] "ax, by, cz"</div><div class='input'><span class='fu'>pcsc</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "a; b; c"</div><div class='input'><span class='fu'>pcnl</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "a\nb\nc"</div><div class='input'><span class='fu'>pc_and</span>(<span class='no'>x</span>[<span class='fl'>1</span>:<span class='fl'>2</span>])</div><div class='output co'>#&gt; [1] "a and b"</div><div class='input'><span class='fu'>pc_and</span>(<span class='no'>x</span>[<span class='fl'>1</span>:<span class='fl'>3</span>])</div><div class='output co'>#&gt; [1] "a, b, and c"</div><div class='input'><span class='fu'>pc_or</span>(<span class='no'>x</span>[<span class='fl'>1</span>:<span class='fl'>2</span>])</div><div class='output co'>#&gt; [1] "a or b"</div><div class='input'><span class='fu'>pc_or</span>(<span class='no'>x</span>[<span class='fl'>1</span>:<span class='fl'>3</span>])</div><div class='output co'>#&gt; [1] "a, b, or c"</div><div class='input'><span class='fu'>pc_and</span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt; [1] "ax, by, and cz"</div><div class='input'><span class='fu'>pc_and</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] "a-x, b-y, and c-z"</div><div class='input'><span class='fu'>pc_and</span>(<span class='no'>x</span>[<span class='fl'>1</span>])</div><div class='output co'>#&gt; [1] "a"</div><div class='input'><span class='fu'>pc_and</span>(<span class='no'>x</span>[<span class='fl'>0</span>])</div><div class='output co'>#&gt; [1] ""</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -203,3 +287,4 @@
 
   </body>
 </html>
+

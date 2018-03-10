@@ -18,6 +18,8 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -25,6 +27,11 @@
 <script src="../pkgdown.js"></script>
   
   
+<meta property="og:title" content="unwrap — unwrap" />
+
+<meta property="og:description" content="Remove pair(s) of characters from a string. The pair(s) to be removed
+can be at any position within the string." />
+<meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -162,7 +169,7 @@ can be at any position within the string.</p>
 <span class='co'># markdown bold</span>
 <span class='no'>unbold</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'>unwrap</span>(<span class='no'>x</span>, <span class='st'>"**"</span>)
 <span class='no'>bold</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>...</span>) <span class='fu'><a href='wrap.html'>wrap</a></span>(<span class='fu'>paste</span>(<span class='no'>...</span>), <span class='st'>"**"</span>)
-(<span class='no'>x</span> <span class='kw'>&lt;-</span> (<span class='fu'><a href='paste-variants.html'>p</a></span>(<span class='st'>"make a word"</span>, <span class='fu'>bold</span>(<span class='st'>"bold"</span>))))</div><div class='output co'>#&gt; [1] "make a word **bold**"</div><div class='input'><span class='fu'>unbold</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "make a word bold"</div></pre>
+(<span class='no'>x</span> <span class='kw'>&lt;-</span> (<span class='fu'><a href='paste-variants.html'>p</a></span>(<span class='st'>"make a word"</span>, <span class='fu'>bold</span>(<span class='st'>"bold"</span>))))</div><div class='output co'>#&gt; [1] "make a word**bold**"</div><div class='input'><span class='fu'>unbold</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "make a wordbold"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -193,3 +200,4 @@ can be at any position within the string.</p>
 
   </body>
 </html>
+

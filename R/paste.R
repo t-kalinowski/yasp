@@ -53,7 +53,7 @@ ps <- function(...) paste(..., sep = " ")
 # paste sep space
 #' @export
 #' @rdname paste-variants
-pss <- function(...) paste(..., sep = " ")
+pss <- ps
 
 # paste sep underscore
 #' @export
@@ -166,7 +166,7 @@ pc_or <- function (..., sep = "") {
 #'
 #' @param x character to wrap
 #' @param left,right character pair to wrap with
-#' @param ... passed to \code{\link[base:paste]{base::paste}} before wrapping
+#' @param sep,... passed to \code{\link[base:paste]{base::paste}} before wrapping
 #'
 #' @rdname wrap
 #' @export

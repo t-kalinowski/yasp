@@ -26,7 +26,7 @@ parens(..., sep = "")
 
 \item{left, right}{character pair to wrap with}
 
-\item{...}{passed to \code{\link[base:paste]{base::paste}} before wrapping}
+\item{sep, ...}{passed to \code{\link[base:paste]{base::paste}} before wrapping}
 }
 \description{
 Wrap strings with flanking characters
