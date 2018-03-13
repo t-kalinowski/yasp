@@ -7,6 +7,7 @@
 #'    \code{ps()}, \code{pss()} \tab paste (sep) space         \tab \code{NULL}               \tab \code{" "}    \cr
 #'    \code{psh()}              \tab paste sep hyphen          \tab \code{NULL}               \tab \code{"-"}    \cr
 #'    \code{psu()}              \tab paste sep underscore      \tab \code{NULL}               \tab \code{"_"}    \cr
+#'    \code{psnl()}             \tab paste sep newline         \tab \code{NULL}               \tab \code{"\n"}   \cr
 #'    \code{pc()}               \tab paste collapse            \tab \code{""}                 \tab \code{""}     \cr
 #'    \code{pcs()}              \tab paste collapse space      \tab \code{" "}                \tab \code{""}     \cr
 #'    \code{pcc()}              \tab paste collapse comma      \tab \code{", "}               \tab \code{""}     \cr
@@ -64,6 +65,12 @@ psu <- function(...) paste(..., sep = "_")
 #' @export
 #' @rdname paste-variants
 psh <- function(...) paste(..., sep = "-")
+
+
+# paste sep newline
+#' @export
+#' @rdname paste-variants
+psnl <- function(...) paste(..., sep = "\n")
 
 
 # ? idea?
