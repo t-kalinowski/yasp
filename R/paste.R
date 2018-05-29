@@ -95,27 +95,6 @@ pc <- function(..., sep = "")
 pcs <- function(..., sep = "")
   paste(..., sep = sep, collapse = " ")
 
-## removing for now to keep the total number of exported function low
-#
-# ' # paste collapse underscore
-# ' #' @rdname paste-variants
-# ' #' @export
-# ' pcu <- function(..., sep = "")
-# '   paste(..., sep = sep, collapse = "_")
-#
-# ' # paste collapse dash
-# ' #' @rdname paste-variants
-# ' #' @export
-# ' pcd <- function(..., sep = "")
-# '   paste(..., sep = sep, collapse = "-")
-#
-## lines from documentation tables above and in README
-# '    \code{pcu()}    \tab paste collapse underscore \tab \code{"_"}                \tab \code{""}    \cr
-# | `pcu()`     | paste collapse underscore | `"_"`      | `""`   |
-#
-# ## from examples
-# # ' pcu(x)
-
 # paste collapse comma
 #' @rdname paste-variants
 #' @export
