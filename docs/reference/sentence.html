@@ -25,8 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
 <meta property="og:title" content="sentence — sentence" />
 
 <meta property="og:description" content="A wrapper around paste that does some simple cleaning appropriate for
@@ -48,6 +49,9 @@ capitalizes the first letter of each sentence (start-of-string or
          following a .?!)
 " />
 <meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -70,8 +74,12 @@ capitalizes the first letter of each sentence (start-of-string or
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">yasp</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">yasp</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -93,6 +101,7 @@ capitalizes the first letter of each sentence (start-of-string or
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -100,12 +109,15 @@ capitalizes the first letter of each sentence (start-of-string or
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>sentence</h1>
+    <small class="dont-index">Source: <a href='https://github.com/t-kalinowski/yasp/blob/master/R/sentence.R'><code>R/sentence.R</code></a></small>
+    <div class="hidden name"><code>sentence.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>A wrapper around <code>paste</code> that does some simple cleaning appropriate for
 prose sentences. It</p><ol>
@@ -126,10 +138,11 @@ prose sentences. It</p><ol>
          following a <code>.?!</code>)</p></li>
 </ol>
     
+    </div>
 
     <pre class="usage"><span class='fu'>sentence</span>(<span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -177,6 +190,8 @@ prose sentences. It</p><ol>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>
