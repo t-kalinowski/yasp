@@ -1,11 +1,11 @@
 Package: yasp
 Type: Package
-Title: String Functions for Compact and Expressive Code
-Version: 0.1.0.9000
+Title: String Functions for Compact R Code
+Version: 0.2.0
 Authors@R: person("Tomasz", "Kalinowski", email = "tkalinow@asu.edu",
                   role = c("aut", "cre"))
-Description: A collection of string functions designed for writing more
-    compact and expressive code. 'yasp' (Yet Another String Package) is simple,
+Description: A collection of string functions designed for writing 
+    compact and expressive R code. 'yasp' (Yet Another String Package) is simple,
     fast, dependency-free, and written in pure R. The package provides: a
     coherent set of abbreviations for paste() from package 'base' with a
     variety of defaults, such as p() for "paste" and pcc() for "paste and
