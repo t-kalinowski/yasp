@@ -145,6 +145,8 @@ pc_or <- function (..., sep = "") {
 }
 
 
+paste <- base::paste
+
 
 #' Wrap strings
 #'
