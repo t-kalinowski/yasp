@@ -1,6 +1,7 @@
 # yasp: String Functions for Compact R Code
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/yasp)](https://cran.r-project.org/package=yasp)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/last-month/yasp?color=blue)](https://r-pkg.org/pkg/yasp)
 
 yasp is a small `R` package for working with character vectors. It is written
 in pure base `R` and has no dependancies. It includes:
